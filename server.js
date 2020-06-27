@@ -1,31 +1,44 @@
 const express = require('express');
-const database = require('./DB/database');
-const personModel= require('./DB/schemas');
-require('dotenv').config();
-const mongoose = require('mongoose');
 const assert = require('assert');
+const db = require('./DB/database')
+const customersModel = require('./DB/schemas.Customers');
+const moviesModel = require('./DB/schemas.Movies');
+const usersModel = require('./DB/schemas.Users')
+var router = express.Router();
+require('dotenv').config();
 
-const url = process.env.MONGO_DB_CLUSTER0_PSW;
+const app = express();
 
-// Connect to mongo
-mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true },  
-  function (err, db) {
+app.get('/api/users', (req, res) => {
+  console.log('/api/users...');
+
+  usersModel.find({}, (err, users) => {
     assert.equal(null, err);
-
-    console.log('MongoDB connected to ' + url + '...');  
-});
-  
-  const app = express();
-  
-  app.get('/api/customers', (req, res) => {
-        
-    personModel.find({ }, function(err, person){
-      assert.equal(null, err);
-      console.log("Person: " + person );
-      res.json(person);
-    }) 
+    //console.log("Users: " + users);
+    res.json(users);
   });
+});
+
+app.get('/api/customers', (req, res) => {
+  console.log("/api/customers...");
+
+  customersModel.find({}, function (err, customers) {
+    assert.equal(null, err);
+    //console.log("Customers: " + customers);
+    res.json(customers);
+  });
+});
+
+app.get('/api/movies', (req, res) => {
+  console.log('/api/movies...');
   
-  const port = process.env.PORT || 5000;
-  
-  app.listen(port, () => `Server running on port ${port}`);
+  moviesModel.find({}, (err, movies) => {
+    assert.equal(null, err);
+    //console.log("Movies: " + movies);
+    res.json(movies);
+  }).sort({ title: 1 });
+});
+
+const port = process.env.PORT || 5000;
+
+app.listen(port, () => `Server running on port ${port}`);

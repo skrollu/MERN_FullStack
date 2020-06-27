@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './customers.css';
+import styles from '../css/customers.module.css';
 
 class Customers extends Component {
   constructor() {
@@ -19,9 +19,9 @@ class Customers extends Component {
     return (
       <div>
         <h2>Customers</h2>
-        <ul>
+        <ul className={styles.ul}>
         {this.state.customers.map(customer => 
-          <li key={customer.id}>{customer.firstName} {customer.lastName}</li>
+          <li className={styles.li} key={customer.id}>{customer.firstName} {customer.lastName}</li> //{customer.firstName} {customer.lastName} // {customer.title} {customer.director} //{customer.name} {customer.email}
         )}
         </ul>
       </div>

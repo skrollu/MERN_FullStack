@@ -1,25 +1,18 @@
-/* const mongoose = require('mongoose');
+const mongoose = require('mongoose');
+const assert = require('assert');
+require('dotenv').config();
 
-function databaseOperation(url, base, collection, operation){
+const url = process.env.MONGO_DB_CLUSTER0_TEST_PSW;
 
-    // Connect to mongo
-    mongoose.connect(url + base, { useNewUrlParser: true, useUnifiedTopology: true },
-        function (err, db) {
-            if (err) {
-                throw err;
-            }
+// Connect to mongo
+let db = mongoose.createConnection(url, { useNewUrlParser: true, useUnifiedTopology: true },  
+  function (err, db) {
+    assert.equal(null, err);
 
-            let collec = db.collection(collection);
+    console.log('MongoDB connected to ' + url + '...');  
+    //db.collection("people");
 
-            console.log('MongoDB connected to ' + url + base + '/' + collection + '...');
+    console.log(db.models)
+});
 
-            switch(operation){
-                case "FIND": const a = Person.find({}, (err, person) => { if (err) return handleError(err); }); console.log(a); return a;
-                default: console.log("default case");
-            }
-
-        });
-} */
-
-//module.exports = require('./mongo');
-//export default (mongoConnect) =
+module.exports = db;
