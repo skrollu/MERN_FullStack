@@ -9,7 +9,7 @@ let db = mongoose.createConnection(url, { useNewUrlParser: true, useUnifiedTopol
   function (err, db) {
     assert.equal(null, err);
 
-    console.log('MongoDB connected to ' + url + '...');  
+    //console.log('MongoDB connected to ' + url + '...');  
     //db.collection("people");
 
     console.log(db.models)

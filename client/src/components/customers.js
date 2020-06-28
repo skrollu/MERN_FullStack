@@ -21,7 +21,7 @@ class Customers extends Component {
         <h2>Customers</h2>
         <ul className={styles.ul}>
         {this.state.customers.map(customer => 
-          <li className={styles.li} key={customer.id}>{customer.firstName} {customer.lastName}</li> //{customer.firstName} {customer.lastName} // {customer.title} {customer.director} //{customer.name} {customer.email}
+          <li className={styles.li} key={customer.id}>{customer.firstName} {customer.lastName}</li>
         )}
         </ul>
       </div>

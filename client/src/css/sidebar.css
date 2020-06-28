@@ -1,0 +1,33 @@
+.abc{
+  background-color: blue;
+}
+
+/* The sidebar menu */
+.sidebar {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 160px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  background-color: whitesmoke;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+
+  left: -100%;
+  animation: openning-sidebar 1s forwards;
+}
+
+/* The sidebar menu */
+.sidebar.close{
+  animation: closing-sidebar 1.0s forwards;
+  left: 0;
+}
+
+
+@keyframes openning-sidebar {
+    100% {left: 0;}
+}
+
+@keyframes closing-sidebar {
+    100% {left: -100%;}
+}
