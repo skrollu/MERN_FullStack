@@ -1,11 +1,39 @@
-.abc{
-  background-color: blue;
+.ul {
+  padding:0;
+  list-style:none;
+  width: 30%;
+  margin:auto;
+}
+
+.li {
+  font-size:1.2rem;
+  line-height: 2rem;
+  border-bottom: 1px groove rgb(255, 0, 0);
+}
+
+
+.ul li:hover{
+    color: green;
+    font-size: xx-large;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
 }
 
 /* The sidebar menu */
 .sidebar {
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 160px; /* Set the width of the sidebar */
+  width: 30%; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
