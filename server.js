@@ -1,43 +1,17 @@
 const express = require('express');
 const assert = require('assert');
 const db = require('./DB/database')
-const customersModel = require('./DB/schemas.Customers');
+const router = require('./router/api');
 const moviesModel = require('./DB/schemas.Movies');
-const usersModel = require('./DB/schemas.Users')
-var router = express.Router();
 require('dotenv').config();
 
 const app = express();
 
-app.get('/api/users', (req, res) => {
-  console.log('/api/users...');
+app.get('/api/users', router.users);
 
-  usersModel.find({}, (err, users) => {
-    assert.equal(null, err);
-    //console.log("Users: " + users);
-    res.json(users);
-  });
-});
+app.get('/api/customers', router.customers);
 
-app.get('/api/customers', (req, res) => {
-  console.log("/api/customers...");
-
-  customersModel.find({}, function (err, customers) {
-    assert.equal(null, err);
-    //console.log("Customers: " + customers);
-    res.json(customers);
-  });
-});
-
-app.get('/api/movies', (req, res) => {
-  console.log('/api/movies...');
-  
-  moviesModel.find({}, (err, movies) => {
-    assert.equal(null, err);
-    //console.log("Movies: " + movies);
-    res.json(movies);
-  }).sort({ title: 1 });
-});
+app.get('/api/movies', router.movies);
 
 const port = process.env.PORT || 5000;
 
