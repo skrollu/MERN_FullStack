@@ -6,6 +6,7 @@ import Movies from './components/movies';
 import Users from './components/users';
 import SideBar from './components/sidebar';
 import ToggleSideBar from './components/toggleSidebar';
+import Filter from './components/filter';
 
 class App extends Component {
 
@@ -47,6 +48,8 @@ class App extends Component {
         
         {sidebar}
         
+        <Filter />
+
         <Users />
         <Customers />
         <Movies />
