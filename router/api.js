@@ -35,3 +35,15 @@ exports.movies = (req, res) => {
         res.json(movies);
     }).sort({ title: 1 });
 }
+
+exports.movieId = (req, res) => {
+    console.log('/api/moviesId...');
+
+    let id = req.params.id;
+
+    moviesModel.find({"_id": id}, (err, movie) => {
+        assert.equal(null, err);
+        //console.log("Movie: " + movie);
+        res.json(movie);
+    });
+}

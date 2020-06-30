@@ -12,6 +12,7 @@ app.get('/api/users', router.users);
 app.get('/api/customers', router.customers);
 
 app.get('/api/movies', router.movies);
+app.get('/api/movies/:id', router.movieId);
 
 const port = process.env.PORT || 5000;
 
