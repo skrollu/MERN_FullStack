@@ -19,9 +19,11 @@ class Customers extends Component {
     return (
       <div>
         <h2>Customers</h2>
+
         <ul className={styles.ul}>
         {this.state.customers.map(customer => 
           <li className={styles.li} key={customer.id}>{customer.firstName} {customer.lastName}</li>
+
         )}
         </ul>
       </div>

@@ -50,6 +50,7 @@ class App extends Component {
         <Users />
         <Customers />
         <Movies />
+
       </div>
     );
   }
