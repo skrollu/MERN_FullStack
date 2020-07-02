@@ -1,18 +1,22 @@
 const express = require('express');
 const assert = require('assert');
 const db = require('./DB/database')
-const router = require('./router/api');
-const moviesModel = require('./DB/schemas.Movies');
 require('dotenv').config();
 
 const app = express();
 
-app.get('/api/users', router.users);
+const users = require('./routes/api/users')
+app.use('/api/users', users);
 
-app.get('/api/customers', router.customers);
+const customers = require('./routes/api/customers')
+app.use('/api/customers', customers);
 
-app.get('/api/movies', router.movies);
-app.get('/api/movies/:id', router.movieId);
+const movies = require('./routes/api/movies')
+app.use('/api/movies', movies);
+
+/* const starWarsBooks = require('./routes/api/starWarsBooks')
+app.use('/api/starWarsBooks', starWarsBooks);
+ */
 
 const port = process.env.PORT || 5000;
 

@@ -6,6 +6,7 @@ import Movies from './components/movies';
 import Users from './components/users';
 import SideBar from './components/sidebar';
 import ToggleSideBar from './components/toggleSidebar';
+import StarWarsBooks from './components/starWarsBooks';
 
 class App extends Component {
 
@@ -49,6 +50,7 @@ class App extends Component {
         
         <Users />
         <Customers />
+        <StarWarsBooks />
         <Movies />
 
       </div>
