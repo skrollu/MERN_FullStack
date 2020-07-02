@@ -5,24 +5,33 @@ class Filter extends Component {
     constructor() {
         super();
         this.state = {
-     
+            sortBy: ""
         };
+    }
+
+    search(event){
+        event.preventDefault();
+        console.log('searchMethod')
+    }
+
+    sortBy(){
+        console.log('sortByMethod')
     }
 
     render() {
         return (
             <div className={styles.wrapper}>
                 <h2>Filter</h2>
-                <form>
+                <form action="">
                     <input id="searchText" type="text" placeholder="Search" className={styles.searchText}></input>
 
-                    <select id="sort-by" className={styles.sortBySelect}>
+                    <select id="sort-by" className={styles.sortBySelect} onSelect={() => this.sortBy()}>
                         <option value="">Sort by</option>
                         <option value="director">Director</option>
                         <option value="title">Title</option>
                         <option value="year">Year</option>
                     </select>
-                    <button type="submit" className={styles.submitButton}>Search</button>
+                    <button type="submit" className={styles.submitButton} onSubmit={(e) => this.search(e)}>Search</button>
                 </form>
             </div>
         );
