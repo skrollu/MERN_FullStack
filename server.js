@@ -1,9 +1,12 @@
 const express = require('express');
-const assert = require('assert');
-const db = require('./DB/database')
+const bodyParser = require('body-parser');
+const db = require('./Database/database');
 require('dotenv').config();
 
 const app = express();
+
+//Bodyparser middleware
+app.use(bodyParser.json());
 
 const users = require('./routes/api/users')
 app.use('/api/users', users);
@@ -14,9 +17,9 @@ app.use('/api/customers', customers);
 const movies = require('./routes/api/movies')
 app.use('/api/movies', movies);
 
-/* const starWarsBooks = require('./routes/api/starWarsBooks')
+const starWarsBooks = require('./routes/api/starWarsBooks');
 app.use('/api/starWarsBooks', starWarsBooks);
- */
+
 
 const port = process.env.PORT || 5000;
 
