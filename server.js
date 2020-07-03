@@ -4,9 +4,9 @@ const db = require('./Database/database');
 require('dotenv').config();
 
 const app = express();
+app.use(express.json());
 
-//Bodyparser middleware
-app.use(bodyParser.json());
+
 
 const users = require('./routes/api/users')
 app.use('/api/users', users);

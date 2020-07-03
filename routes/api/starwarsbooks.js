@@ -33,14 +33,14 @@ router.post('/', function (req, res) {
             edition: req.body.edition,
             author: req.body.author,
             resume: req.body.resume,
-            //translater: req.body.translater,
+            translater: req.body.translater,
             isbn: req.body.isbn,
             releaseDate: req.body.releaseDate,
             year: req.body.year,
             cover: req.body.cover,
-            //illustrater: req.body.translater,
+            illustrater: req.body.illustrater,
             barcode: req.body.barcode,
-            //volumes: req.body.volumes,
+            volumes: req.body.volumes,
             number: req.body.number
         }
     );
