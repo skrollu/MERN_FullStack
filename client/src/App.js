@@ -43,7 +43,7 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <ToggleSideBar openHandler={() => this.openHandler()}/>
-          <h1 className="App-title">Movie Viewer</h1>
+          <h1 className="App-title">My API</h1>
         </header>
         
         {sidebar}

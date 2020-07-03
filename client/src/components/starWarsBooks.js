@@ -22,29 +22,13 @@ class StarWarsBooks extends Component {
                 <ul className={styles.ul}>
                     {this.state.books.map(book =>
                         <li className={styles.li} key={book.id}>
-                     
-                        </li>
-                    )}
-                </ul>
-            </div>
-        );
-    }
-}
+                            <div className={styles.header}>
+                                <p><span className={styles.title}>{book.title} </span><em>{book.releaseDate}, {book.author}</em> </p>
+                            </div>
 
-export default StarWarsBooks;
-
-/**
- * 
- * <li className={styles.li} key={book.id}>
                             <table>
                                 <tr>
-                                    <td><h1>{book.title} </h1></td>
-                                    <td>
-                                        <em>{book.releaseDate}, {book.author}</em>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><h4><em>Resume: </em></h4><p>{book.resume}</p></td>
+                                    <td><span className={styles.resume}><h4><em>Resume: </em></h4><p>{book.resume}</p></span></td>
                                     <td>
                                         <img class="fit-picture"
                                             height="350px"
@@ -55,4 +39,11 @@ export default StarWarsBooks;
                             </table>
 
                         </li>
- */
+                    )}
+                </ul>
+            </div>
+        );
+    }
+}
+
+export default StarWarsBooks;
