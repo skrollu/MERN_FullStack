@@ -27,14 +27,12 @@ class SideBar extends Component {
         return (
 
             <div className={this.state.sidebarStyle}>
-                <button className={styles.openbtn} onClick={() => this.closeHandler()}>Close</button>
+
+                <button className={"openbtn"} onClick={() => this.closeHandler()}>Close</button>
                 <h2>SideBar</h2>
-                <ul className={styles.ul}>
-                    <li className={styles.li}>Link</li>
-                    <li className={styles.li}>Link</li>
-                    <li className={styles.li}>Link</li>
-                    <li className={styles.li}>Link</li>
-                    <li className={styles.li}>Link</li>
+                <ul className={"ul"}>
+                    <li className={"li"}>Link</li>
+                    <li className={"li"}>Link</li>
                 </ul>
             </div>
         );
