@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import styles from '../css/sidebar.module.css';
+import styles from '../css/sidebar.module.css';
 import '../css/sidebar.css';
 
 class SideBar extends Component {
@@ -27,11 +27,14 @@ class SideBar extends Component {
         return (
 
             <div className={this.state.sidebarStyle}>
-                <button onClick={() => this.closeHandler()}>Close</button>
+                <button className={styles.openbtn} onClick={() => this.closeHandler()}>Close</button>
                 <h2>SideBar</h2>
-                <ul>
-                    <li>Link</li>
-                    <li>Link</li>
+                <ul className={styles.ul}>
+                    <li className={styles.li}>Link</li>
+                    <li className={styles.li}>Link</li>
+                    <li className={styles.li}>Link</li>
+                    <li className={styles.li}>Link</li>
+                    <li className={styles.li}>Link</li>
                 </ul>
             </div>
         );
@@ -39,11 +42,3 @@ class SideBar extends Component {
 }
 
 export default SideBar;
-/**
-<ul className={styles.ul}>
-                    <li className={styles.li}>Link</li>
-                    <li className={styles.li}>Link</li>
-                    <li className={styles.li}>Link</li>
-                    <li className={styles.li}>Link</li>
-                    <li className={styles.li}>Link</li>
-                </ul> */
