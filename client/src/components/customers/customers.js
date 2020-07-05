@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import styles from '../../css/customers.module.css';
 import axios from 'axios';
+import { connect } from 'react-redux'
+import { getItems } from '../../actions/itemActions'
+import PropTypes from 'prop-types'
 
 class Customers extends Component {
   constructor() {
@@ -11,18 +14,7 @@ class Customers extends Component {
   }
 
   componentDidMount() {
-    axios.get('/api/customers')
-      .then(res => {
-        const data = res.data
-        this.setState({ customers: data })
-        console.log('Customers fetched...', this.state.customers)
-    });
-
-    /*
-    fetch('/api/customers')
-      .then(res => res.json())
-      .then(customers => this.setState({customers}, () => console.log('Customers fetched...', customers)));
-    */
+    this.props.getItems();
   }
 
   render() {
@@ -31,9 +23,8 @@ class Customers extends Component {
         <h2>Customers</h2>
 
         <ul className={styles.ul}>
-        {this.state.customers.map(customer => 
+        {this.props.item.items.map(customer => 
           <li className={styles.li} key={customer.id}>{customer.firstName} {customer.lastName}</li>
-
         )}
         </ul>
       </div>
@@ -41,4 +32,13 @@ class Customers extends Component {
   }
 }
 
-export default Customers;
+Customers.propTypes = {
+  getItems: PropTypes.func.isRequired,
+  item: PropTypes.object.isRequired //represent our state
+}
+
+const mapStateToProps = (state) => ({
+  item: state.item
+});
+
+export default connect(mapStateToProps, { getItems })(Customers);

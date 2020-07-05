@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Provider } from 'react-redux'
+import store from './store';
 import Customers from './components/customers/customers';
 import MoviesGrid from './components/movies/moviesGrid';
 import Users from './components/users';
@@ -39,22 +41,23 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <ToggleSideBar openHandler={() => this.openHandler()}/>
-          <h1 className="App-title">My API</h1>
-        </header>
-        
-        {sidebar}
-        
-        <MoviesGrid />
-        <Users />
-        <Customers />
-        <StarWarsBooks />
-   
+      <Provider store={store}>
+        <div className="App">
+          <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+            <ToggleSideBar openHandler={() => this.openHandler()} />
+            <h1 className="App-title">My API</h1>
+          </header>
 
-      </div>
+          {sidebar}
+
+          <Customers />
+          <MoviesGrid />
+          <Users />
+          <StarWarsBooks />
+          
+        </div>
+      </Provider>
     );
   }
 }
