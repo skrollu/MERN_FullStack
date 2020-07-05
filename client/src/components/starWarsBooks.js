@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styles from '../css/starWarsBooks.module.css';
+import axios from 'axios';
 
 class StarWarsBooks extends Component {
     constructor() {
@@ -10,9 +11,17 @@ class StarWarsBooks extends Component {
     }
 
     componentDidMount() {
+        axios.get('/api/starWarsBooks')
+            .then(res => {
+                const data = res.data
+                this.setState({ books: data })
+                console.log('Books fetched...', this.state.books)
+            });
+/*
         fetch('/api/starWarsBooks')
             .then(res => res.json())
             .then(books => this.setState({ books }, () => console.log('Books fetched...', books)));
+            */
     }
 
     render() {

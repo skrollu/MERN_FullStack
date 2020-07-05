@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styles from '../css/movies.module.css';
+import axios from 'axios';
 
 class Movies extends Component {
     constructor() {
@@ -10,9 +11,18 @@ class Movies extends Component {
     }
 
     componentDidMount() {
+        axios.get('/api/movies')
+            .then(res => {
+                const data = res.data
+                this.setState({ movies: data })
+                console.log('Movies fetched...', this.state.movies)
+            });
+
+            /*
         fetch('/api/movies')
             .then(res => res.json())
             .then(movies => this.setState({ movies }, () => console.log('Movies fetched...', movies)));
+            */
     }
 
     render() {
