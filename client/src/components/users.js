@@ -18,11 +18,6 @@ class Users extends Component {
                 this.setState({ users: data })
                 console.log('Users fetched...', this.state.users)
             });
-            /*
-        fetch('/api/users')
-            .then(res => res.json())
-            .then(users => this.setState({ users }, () => console.log('Users fetched...', users)));
-            */
     }
 
     render() {

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Customers from './components/customers';
-import Movies from './components/movies';
+import Customers from './components/customers/customers';
+import MoviesGrid from './components/movies/moviesGrid';
 import Users from './components/users';
 import SideBar from './components/sidebar';
 import ToggleSideBar from './components/toggleSidebar';
@@ -48,10 +48,11 @@ class App extends Component {
         
         {sidebar}
         
+        <MoviesGrid />
         <Users />
         <Customers />
         <StarWarsBooks />
-        <Movies />
+   
 
       </div>
     );

@@ -17,11 +17,6 @@ class StarWarsBooks extends Component {
                 this.setState({ books: data })
                 console.log('Books fetched...', this.state.books)
             });
-/*
-        fetch('/api/starWarsBooks')
-            .then(res => res.json())
-            .then(books => this.setState({ books }, () => console.log('Books fetched...', books)));
-            */
     }
 
     render() {
