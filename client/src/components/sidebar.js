@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styles from '../css/sidebar.module.css';
+import { Link } from 'react-router-dom';
 import '../css/sidebar.css';
 
 class SideBar extends Component {
@@ -31,8 +32,19 @@ class SideBar extends Component {
                 <button className={"openbtn"} onClick={() => this.closeHandler()}>Close</button>
                 <h2>SideBar</h2>
                 <ul className={"ul"}>
-                    <li className={"li"}>Link</li>
-                    <li className={"li"}>Link</li>
+                    <Link to="/">
+                        <li className={"li"}>Movies</li>
+                    </Link>
+                    <Link to="/customers">
+                        <li className={"li"}>Customers</li>
+                    </Link>
+                    <Link to="/users">
+                        <li className={"li"}>Users</li>
+                    </Link>
+                    <Link to="/books">
+                        <li className={"li"}>Books</li>
+                    </Link>
+                    
                 </ul>
             </div>
         );
