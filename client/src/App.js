@@ -55,10 +55,10 @@ class App extends Component {
 
           </div>
 
-          <Route path="/" component={MoviesGrid}/>
-          <Route path="/customers" component={Customers} />
-          <Route path="/books" component={StarWarsBooks} />
-          <Route path="/users" component={Users} />
+          <Route path="/" exact component={MoviesGrid}/>
+          <Route path="/customers" exact component={Customers} />
+          <Route path="/books" exact component={StarWarsBooks} />
+          <Route path="/users" exact component={Users} />
 
         </Router>
       </Provider>

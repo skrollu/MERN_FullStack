@@ -21,11 +21,15 @@ const MoviesGrid = () => {
     return isLoading ? (
         <Spinner />
     ) : (
-        <section className={styles.cards}>
-            {movies.map((movie) => (
-                <Movies key={movie.id} movie={movie}></Movies>
-            ))}
-        </section>
+        <div>
+            <h2 className={styles.title}>Movies</h2>
+            <section className={styles.cards}>
+                    
+                {movies.map((movie) => (
+                    <Movies key={movie.id} movie={movie}></Movies>
+                ))}
+            </section>    
+        </div>
     );
 }
 

@@ -20,12 +20,11 @@ class Customers extends Component {
   render() {
     return (
       <div>
-        <h2>Customers</h2>
-
+        <h2 className={styles.title}>Customers</h2>
         <ul className={styles.ul}>
-        {this.props.item.items.map(customer => 
-          <li className={styles.li} key={customer.id}>{customer.firstName} {customer.lastName}</li>
-        )}
+          {this.props.item.items.map(customer => 
+            <li className={styles.li} key={customer.id}>{customer.firstName} {customer.lastName}</li>
+          )}
         </ul>
       </div>
     );

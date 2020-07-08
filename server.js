@@ -1,12 +1,9 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const db = require('./Database/database');
 require('dotenv').config();
 
 const app = express();
 app.use(express.json());
-
-
 
 const users = require('./routes/api/users')
 app.use('/api/users', users);

@@ -23,7 +23,7 @@ class Users extends Component {
     render() {
         return (
             <div>
-                <h2>Users</h2>
+                <h2 className={styles.title}>Users</h2>
                 <ul className={styles.ul}>
                     {this.state.users.map(user =>
                         <li className={styles.li} key={user.id}>{user.name} {user.email}</li>

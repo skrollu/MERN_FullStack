@@ -22,7 +22,7 @@ class StarWarsBooks extends Component {
     render() {
         return (
             <div>
-                <h2>Star Wars Books</h2>
+                <h2 className={styles.title}>Star Wars Books</h2>
                 <ul className={styles.ul}>
                     {this.state.books.map(book =>
                         <li className={styles.li} key={book.id}>
