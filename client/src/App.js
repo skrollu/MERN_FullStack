@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Customers from './components/customers';
-import Movies from './components/movies';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import store from './store';
+import Customers from './components/customers/customers';
+import MoviesGrid from './components/movies/moviesGrid';
 import Users from './components/users';
 import SideBar from './components/sidebar';
 import ToggleSideBar from './components/toggleSidebar';
+import StarWarsBooks from './components/starWarsBooks';
 
 class App extends Component {
 
@@ -38,19 +42,26 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <ToggleSideBar openHandler={() => this.openHandler()}/>
-          <h1 className="App-title">Movie Viewer</h1>
-        </header>
-        
-        {sidebar}
-        
-        <Users />
-        <Customers />
-        <Movies />
-      </div>
+      <Provider store={store}>
+        <Router>
+          <div className="App">
+            <header className="App-header">
+              <img src={logo} className="App-logo" alt="logo" />
+              <ToggleSideBar openHandler={() => this.openHandler()} />
+              <h1 className="App-title">My API</h1>
+            </header>
+
+            {sidebar}
+
+          </div>
+
+          <Route path="/" exact component={MoviesGrid}/>
+          <Route path="/customers" exact component={Customers} />
+          <Route path="/books" exact component={StarWarsBooks} />
+          <Route path="/users" exact component={Users} />
+
+        </Router>
+      </Provider>
     );
   }
 }

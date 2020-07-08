@@ -1,6 +1,7 @@
 # MERN-project
 
 MERN-Project that contains informations about movies. 
+
 a file .env for sensibles informations.
 simple client interface and one call to a mongo database with mongoose **don't forget** to add **.env** file with a MONGO_DB_CLUSTER0_PSW.
 
