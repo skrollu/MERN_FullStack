@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import store from './store';
 import Customers from './components/customers/customers';
 import MoviesGrid from './components/movies/moviesGrid';
@@ -42,21 +43,24 @@ class App extends Component {
 
     return (
       <Provider store={store}>
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <ToggleSideBar openHandler={() => this.openHandler()} />
-            <h1 className="App-title">My API</h1>
-          </header>
+        <Router>
+          <div className="App">
+            <header className="App-header">
+              <img src={logo} className="App-logo" alt="logo" />
+              <ToggleSideBar openHandler={() => this.openHandler()} />
+              <h1 className="App-title">My API</h1>
+            </header>
 
-          {sidebar}
+            {sidebar}
 
-          <Customers />
-          <MoviesGrid />
-          <Users />
-          <StarWarsBooks />
-          
-        </div>
+          </div>
+
+          <Route path="/" component={MoviesGrid}/>
+          <Route path="/customers" component={Customers} />
+          <Route path="/books" component={StarWarsBooks} />
+          <Route path="/users" component={Users} />
+
+        </Router>
       </Provider>
     );
   }
