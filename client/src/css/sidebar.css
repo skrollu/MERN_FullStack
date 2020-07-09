@@ -42,7 +42,7 @@
   padding-top: 20px;
 
   left: -100%;
-  animation: openning-sidebar 1s forwards;
+  animation: openning-sidebar .15s forwards;
 }
 
 /* The sidebar menu */
