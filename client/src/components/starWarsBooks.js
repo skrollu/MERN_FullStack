@@ -1,30 +1,30 @@
 import React, { Component } from 'react';
 import styles from '../css/starWarsBooks.module.css';
-import axios from 'axios';
+import { connect } from 'react-redux'
+import { getItems } from '../actions/itemActions'
+import PropTypes from 'prop-types'
+import Spinner from './ui/spinner';
 
 class StarWarsBooks extends Component {
     constructor() {
         super();
         this.state = {
-            books: []
+            collection: "starWarsbooks"
         };
     }
 
     componentDidMount() {
-        axios.get('/api/starWarsBooks')
-            .then(res => {
-                const data = res.data
-                this.setState({ books: data })
-                console.log('Books fetched...', this.state.books)
-            });
+        this.props.getItems(this.state.collection);
     }
 
     render() {
-        return (
+        return this.props.item.loading ? (
+            <Spinner />
+        ) : (
             <div>
                 <h2 className={styles.title}>Star Wars Books</h2>
                 <ul className={styles.ul}>
-                    {this.state.books.map(book =>
+                    {this.props.item.items.map(book =>
                         <li className={styles.li} key={book.id}>
                             <div className={styles.header}>
                                 <p><span className={styles.title}>{book.title} </span><em>{book.releaseDate}, {book.author}</em> </p>
@@ -50,4 +50,15 @@ class StarWarsBooks extends Component {
     }
 }
 
-export default StarWarsBooks;
+StarWarsBooks.propTypes = {
+    getItems: PropTypes.func.isRequired,
+    item: PropTypes.object.isRequired,
+    loading: PropTypes.bool.isRequired
+}
+
+const mapStateToProps = (state) => ({
+    item: state.item,
+    loading: state.loading
+});
+
+export default connect(mapStateToProps, { getItems })(StarWarsBooks);

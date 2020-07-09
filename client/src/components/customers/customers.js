@@ -1,24 +1,26 @@
 import React, { Component } from 'react';
 import styles from '../../css/customers.module.css';
-import axios from 'axios';
 import { connect } from 'react-redux'
 import { getItems } from '../../actions/itemActions'
 import PropTypes from 'prop-types'
+import Spinner from '../ui/spinner';
 
 class Customers extends Component {
   constructor() {
     super();
     this.state = {
-      customers: []
+      collection: "customers"
     };
   }
 
   componentDidMount() {
-    this.props.getItems();
+    this.props.getItems(this.state.collection);
   }
 
   render() {
-    return (
+    return this.props.item.loading ? (
+      <Spinner />
+    ) : (
       <div>
         <h2 className={styles.title}>Customers</h2>
         <ul className={styles.ul}>
@@ -33,11 +35,13 @@ class Customers extends Component {
 
 Customers.propTypes = {
   getItems: PropTypes.func.isRequired,
-  item: PropTypes.object.isRequired //represent our state
+  item: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired
 }
 
 const mapStateToProps = (state) => ({
-  item: state.item
+  item: state.item,
+  loading: state.loading
 });
 
 export default connect(mapStateToProps, { getItems })(Customers);

@@ -38,7 +38,7 @@ class App extends Component {
     
     let sidebar;
     if(this.state.sidebarOpen){
-      sidebar = <SideBar close={() => this.sidebarCloseHandler()} style={"sidebar"}/>;
+      sidebar = <SideBar close={() => this.sidebarCloseHandler()} sidebarStyle={"sidebar"}/>;
     }
 
     return (

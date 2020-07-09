@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from '../css/sidebar.module.css';
+//import styles from '../css/sidebar.module.css';
 import { Link } from 'react-router-dom';
 import '../css/sidebar.css';
 
@@ -7,7 +7,7 @@ class SideBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            sidebarStyle: props.style
+            sidebarStyle: props.sidebarStyle
         };
     }
 

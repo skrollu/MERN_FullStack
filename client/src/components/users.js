@@ -1,31 +1,31 @@
 import React, { Component } from 'react';
 import styles from '../css/users.module.css';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { getItems } from '../actions/itemActions'
+import PropTypes from 'prop-types';
+import Spinner from './ui/spinner';
+
 
 class Users extends Component {
     constructor() {
         super();
         this.state = {
-            users: []
+            collection: "users"
         };
     }
 
     componentDidMount() {
-
-        axios.get('/api/users')
-            .then(res => {
-                const data = res.data
-                this.setState({ users: data })
-                console.log('Users fetched...', this.state.users)
-            });
+        this.props.getItems(this.state.collection);
     }
 
     render() {
-        return (
+        return this.props.item.loading ? (
+            <Spinner />
+        ) : (
             <div>
                 <h2 className={styles.title}>Users</h2>
                 <ul className={styles.ul}>
-                    {this.state.users.map(user =>
+                    {this.props.item.items.map(user =>
                         <li className={styles.li} key={user.id}>{user.name} {user.email}</li>
                     )}
                 </ul>
@@ -34,4 +34,15 @@ class Users extends Component {
     }
 }
 
-export default Users;
+Users.propTypes = {
+    getItems: PropTypes.func.isRequired,
+    item: PropTypes.object.isRequired,
+    loading: PropTypes.bool.isRequired
+}
+
+const mapStateToProps = (state) => ({
+    item: state.item,
+    loading: state.loading
+});
+
+export default connect(mapStateToProps, { getItems })(Users);
