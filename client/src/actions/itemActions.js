@@ -1,8 +1,9 @@
-import { GET_ITEMS, ITEMS_LOADING} from './types';
+import { GET_ITEMS, ITEMS_LOADING, ITEMS_COLLECTION} from './types';
 import axios from 'axios';
 
 export const getItems = (collection) => dispatch => {
     dispatch(setItemsLoading());
+    dispatch(setItemsCollection(collection));
     axios.get(`/api/${collection}`)
         .then(res => {
             const data = res.data
@@ -24,4 +25,12 @@ export const setItemsLoading = () => {
     return ({
         type: ITEMS_LOADING
     });
+}
+
+export const setItemsCollection = (collection) => {
+    const col = collection
+    return ({
+        type: ITEMS_COLLECTION,
+        payload: col
+    })
 }
