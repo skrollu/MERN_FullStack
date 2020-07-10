@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 //import styles from '../css/sidebar.module.css';
+import { Link } from 'react-router-dom';
 import '../css/sidebar.css';
 
 class SideBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            sidebarStyle: props.style
+            sidebarStyle: props.sidebarStyle
         };
     }
 
@@ -27,11 +28,23 @@ class SideBar extends Component {
         return (
 
             <div className={this.state.sidebarStyle}>
-                <button onClick={() => this.closeHandler()}>Close</button>
+
+                <button className={"openbtn"} onClick={() => this.closeHandler()}>Close</button>
                 <h2>SideBar</h2>
-                <ul>
-                    <li>Link</li>
-                    <li>Link</li>
+                <ul className={"ul"}>
+                    <Link to="/">
+                        <li className={"li"}>Movies</li>
+                    </Link>
+                    <Link to="/customers">
+                        <li className={"li"}>Customers</li>
+                    </Link>
+                    <Link to="/users">
+                        <li className={"li"}>Users</li>
+                    </Link>
+                    <Link to="/books">
+                        <li className={"li"}>Books</li>
+                    </Link>
+                    
                 </ul>
             </div>
         );
@@ -39,11 +52,3 @@ class SideBar extends Component {
 }
 
 export default SideBar;
-/**
-<ul className={styles.ul}>
-                    <li className={styles.li}>Link</li>
-                    <li className={styles.li}>Link</li>
-                    <li className={styles.li}>Link</li>
-                    <li className={styles.li}>Link</li>
-                    <li className={styles.li}>Link</li>
-                </ul> */
