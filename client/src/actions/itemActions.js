@@ -21,6 +21,10 @@ export const getItems = (collection) => dispatch => {
     */
 }
 
+export const getItemsBy = (collection, value) => dispatch => {
+
+}
+
 export const setItemsLoading = () => {
     return ({
         type: ITEMS_LOADING
