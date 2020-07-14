@@ -14,7 +14,7 @@ app.use('/api/customers', customers);
 const movies = require('./routes/api/movies')
 app.use('/api/movies', movies);
 
-const starWarsBooks = require('./routes/api/starWarsBooks');
+const starWarsBooks = require('./routes/api/starwarsbooks');
 app.use('/api/starWarsBooks', starWarsBooks);
 
 
