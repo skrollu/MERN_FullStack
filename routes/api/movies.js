@@ -25,6 +25,7 @@ router.get('/', function (req, res) {
  * @access PUBLIC
  * @request GET
  */
+/*
 router.get('/:id', function (req, res) {
     console.log('/api/movies/:id...');
 
@@ -35,6 +36,26 @@ router.get('/:id', function (req, res) {
         //console.log("Movie: " + movie);
         res.json(movie);
     });
+});
+*/
+/**
+ * @route /api/movies/:title
+ * @access PUBLIC
+ * @request GET
+ */
+router.get('/:title', function (req, res) {
+    let title = req.params.title;
+    console.log('/api/movies/:' + title);
+
+    moviesModel.find(
+        { $text: { $search: title } },
+        { score: { $meta: "textScore" } })
+        .sort({ score: { $meta: "textScore" } }
+        )
+        .exec((err, movie) => {
+            assert.equal(null, err);
+            res.json(movie);
+        });
 });
 
 /**

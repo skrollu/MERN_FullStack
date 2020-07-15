@@ -21,8 +21,9 @@ export const getItems = (collection) => dispatch => {
     */
 }
 
-export const getItemsByTitle = (collection, text) => dispatch => {
-    console.log("fetching..." + text)
+export const getItemsBy = (collection, text) => dispatch => {
+    console.log("fetching..." + text);
+    
     dispatch(setItemsLoading());
     axios.get(`/api/${collection}/${text}`)
         .then(res => {
