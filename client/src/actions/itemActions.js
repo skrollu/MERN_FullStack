@@ -11,7 +11,7 @@ export const getItems = (collection) => dispatch => {
                 type: GET_ITEMS,
                 payload: data
             });
-            console.log('Customers fetched...')
+            console.log(collection + ' fetched...')
         })
 
     /*
@@ -19,6 +19,19 @@ export const getItems = (collection) => dispatch => {
     .then(res => res.json())
     .then(customers => this.setState({customers}, () => console.log('Customers fetched...', customers)));
     */
+}
+
+export const getItemsByTitle = (collection, text) => dispatch => {
+    console.log("fetching..." + text)
+    dispatch(setItemsLoading());
+    axios.get(`/api/${collection}/${text}`)
+        .then(res => {
+            const data = res.data
+            dispatch({ //dispatch data to the reducer //possible only thx to redux thunkMiddleware which abble dispatch call to store in async  call
+                type: GET_ITEMS,
+                payload: data
+            });
+        })
 }
 
 export const setItemsLoading = () => {

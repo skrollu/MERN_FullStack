@@ -37,12 +37,10 @@ class Users extends Component {
 Users.propTypes = {
     getItems: PropTypes.func.isRequired,
     item: PropTypes.object.isRequired,
-    loading: PropTypes.bool.isRequired
 }
 
 const mapStateToProps = (state) => ({
     item: state.item,
-    loading: state.loading
 });
 
 export default connect(mapStateToProps, { getItems })(Users);

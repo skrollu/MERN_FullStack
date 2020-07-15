@@ -20,6 +20,21 @@ router.get('/', function (req, res) {
 });
 
 /**
+ * @route /api/starWarsBooks/:title
+ * @access PUBLIC
+ * @request GET
+ */
+router.get('/:title', function (req, res) {
+    //console.log("/api/starWarsBooks...");
+
+    starWarsBooksModel.find({}, function (err, books) {
+        assert.equal(null, err);
+        //console.log("StarWarsBooks: " + books);
+        res.json(books)
+    }).sort({ title: -1 });;
+});
+
+/**
  * @route /api/starWarsBooks/
  * @access PRIVATE
  * @request POST
