@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import photoDeProfil from './img/FacebookPhotoDeProfil.jpg'
 import logo from './logo.svg';
+import logoStarWars from './img/starWarsSpin.gif';
 import './App.css';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
@@ -50,6 +52,12 @@ class App extends Component {
           <div className="App">
             <header className="App-header">
               <img src={logo} className="App-logo" alt="logo" />
+{/*               <div className="image_container">
+                <img
+                  className="image"
+                  src={photoDeProfil}
+                  alt="Photo de Profil" />
+              </div> */}
               <ToggleSideBar openHandler={() => this.openHandler()} />
               <h1 className="App-title">My API</h1>
             </header>

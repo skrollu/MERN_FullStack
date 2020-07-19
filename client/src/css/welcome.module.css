@@ -16,7 +16,7 @@
 
 .image {
   animation: image-spin infinite 2.5s linear;
-  height: 400px;
+  height: 150px;
 }
 
 @keyframes image-spin {
