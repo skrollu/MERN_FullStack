@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from '../css/toggleSidebar.module.css'
+import styles from '../../css/ui/toggleSidebar.module.css'
 
 class ToggleSideBar extends Component {
     constructor(props) {

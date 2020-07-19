@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import photoDeProfil from './img/FacebookPhotoDeProfil.jpg'
+//import photoDeProfil from './img/FacebookPhotoDeProfil.jpg'
 import logo from './logo.svg';
-import logoStarWars from './img/starWarsSpin.gif';
+//import logoStarWars from './img/starWarsSpin.gif';
 import './App.css';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
@@ -9,8 +9,8 @@ import store from './store';
 import Customers from './components/customers/customers';
 import MoviesGrid from './components/movies/moviesGrid';
 import Users from './components/users';
-import SideBar from './components/sidebar';
-import ToggleSideBar from './components/toggleSidebar';
+import SideBar from './components/ui/sidebar';
+import ToggleSideBar from './components/ui/toggleSidebar';
 import StarWarsBooks from './components/starWarsBooks';
 import MovieDetails from './components/movies/movieDetails';
 import Welcome from './components/welcome'
@@ -65,7 +65,7 @@ class App extends Component {
           </div>
 
           <Switch>
-            <Route path="/" component={Welcome} />   
+            <Route path="/" exact component={Welcome} />   
             <Route path="/movies" component={MoviesGrid}/>
             <Route path="/customers" component={Customers} />
             <Route path="/books" component={StarWarsBooks} />

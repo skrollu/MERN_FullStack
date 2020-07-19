@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //import styles from '../css/sidebar.module.css';
 import { Link } from 'react-router-dom';
-import '../css/sidebar.css';
+import '../../css/ui/sidebar.css';
 
 class SideBar extends Component {
     constructor(props) {
@@ -23,26 +23,29 @@ class SideBar extends Component {
 
 
     render() {
-        console.log("Sidebar style: " + this.state.sidebarStyle)
+        //console.log("Sidebar style: " + this.state.sidebarStyle)
 
         return (
 
-            <div className={this.state.sidebarStyle}>
+            <div className={this.state.sidebarStyle}> {/*revoir l'exemple dans le projet redux*/}
 
                 <button className={"openbtn"} onClick={() => this.closeHandler()}>Close</button>
-                <h2>SideBar</h2>
+
                 <ul className={"ul"}>
+                    <Link to="/">
+                        <li>Welcome</li>
+                    </Link>
                     <Link to="/movies">
-                        <li className={"li"}>Movies</li>
+                        <li>Movies</li>
                     </Link>
                     <Link to="/customers">
-                        <li className={"li"}>Customers</li>
+                        <li>Customers</li>
                     </Link>
                     <Link to="/users">
-                        <li className={"li"}>Users</li>
+                        <li>Users</li>
                     </Link>
                     <Link to="/books">
-                        <li className={"li"}>Books</li>
+                        <li>Books</li>
                     </Link>
                     
                 </ul>

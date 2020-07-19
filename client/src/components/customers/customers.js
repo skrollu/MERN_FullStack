@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from '../../css/customers.module.css';
+import styles from '../../css/customers/customers.module.css';
 import { connect } from 'react-redux'
 import { getItems } from '../../actions/itemActions'
 import PropTypes from 'prop-types'

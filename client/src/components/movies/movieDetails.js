@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Spinner from '../ui/spinner';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
-import styles from '../../css/movieDetails.module.css'
+import styles from '../../css/movies/movieDetails.module.css'
 import { getItemById } from '../../actions/itemActions';
 
 class MovieDetails extends Component {

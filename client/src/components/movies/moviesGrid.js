@@ -1,7 +1,7 @@
 import React, { Component, useState, useEffect } from 'react';
 import MovieCard from './movieCard';
 import Spinner from '../ui/spinner';
-import styles from '../../css/moviesGrid.module.css';
+import styles from '../../css/movies/moviesGrid.module.css';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getItems } from '../../actions/itemActions';

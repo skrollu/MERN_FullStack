@@ -1,20 +1,26 @@
 .ul {
-  padding:0;
+  margin: 10% 5%;
+  text-align: left;
   list-style:none;
-  width: 30%;
-  margin:auto;
+  width: 70%;
 }
 
-.li {
-  font-size:1.2rem;
-  line-height: 2rem;
-  border-bottom: 1px groove rgb(255, 0, 0);
+.ul li {
+  color: rgb(226, 217, 209);
+  font-size:1.6rem;
+  line-height: 3rem;
+  border-bottom: 2px groove;
 }
 
+/* visited link */
+.ul li:visited {
+  color: green;
+  text-decoration: underline;
+}
 
 .ul li:hover{
-    color: green;
-    font-size: xx-large;
+  color: white;
+  font-size: x-large;
 }
 
 .openbtn {
@@ -37,7 +43,7 @@
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
-  background-color: whitesmoke;
+  background-color: grey;
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
 

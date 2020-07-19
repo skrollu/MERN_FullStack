@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from '../../css/filter.module.css'
+import styles from '../../css/ui/filter.module.css'
 import { connect } from 'react-redux';
 import { getItemsByText } from '../../actions/itemActions';
 import PropTypes from 'prop-types'
@@ -32,7 +32,6 @@ class Filter extends Component {
     render() {
         return (
             <div className={styles.wrapper}>
-                <h2>Filter</h2>
                 <form action="" onSubmit={(e) => this.search(e)}>
                     <input id="searchText"
                         type="text" 
