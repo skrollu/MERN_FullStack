@@ -37,6 +37,10 @@ const moviesSchema = new Schema({
     youtubeEmbedUrl: {
         type: String,
         default: "https://www.youtube.com/embed/cgt8351V7D0"
+    },
+    actors: {
+        type: Array,
+        required: false
     }
 });
 

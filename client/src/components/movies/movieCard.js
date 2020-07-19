@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../css/movies.module.css';
+import styles from '../../css/movieCard.module.css';
 
 const MovieCard = ( {movie} ) => {
 

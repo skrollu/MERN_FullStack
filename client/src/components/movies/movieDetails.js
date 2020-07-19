@@ -25,20 +25,29 @@ class MovieDetails extends Component {
         return this.props.item.loading ? (
             <Spinner />
         ) : (
-            <div>
-                <ul>
+            <div className={styles.movie}>
+                <ul>           
                     <li>
-                        <strong>{movie.title}</strong>
+                        <span className={styles.title}>
+                            <strong>{movie.title}</strong>
+                        </span>
+                        <em> {movie.director}, {movie.year}, ({movie.runtime} minutes) </em>
+               {/*          {
+                            movie.actors.map((actor) => (
+                                <span>{actor}, </span>        
+                            ))
+                        } */}
+                        <strong>Metacritics: {movie.metacritic}</strong>
+                        <p>{movie.actors}</p>
                     </li>
                     <li>
-                        <em>{movie.year}, {movie.director}</em>
-                    </li>
-                    <li>
-                        {movie.plot}
+                        <p>&emsp;&emsp;{movie.plot}</p>
                     </li>
                 </ul>
+
                 <div className={styles.iframe_container}>
                     <iframe
+                        title={movie.title}
                         width="560"
                         height="315"
                         src={movie.youtubeEmbedUrl}
