@@ -1,3 +1,16 @@
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
 .ul {
   margin: 10% 5%;
   text-align: left;
@@ -23,17 +36,15 @@
   font-size: x-large;
 }
 
-.openbtn {
-  font-size: 20px;
-  cursor: pointer;
-  background-color: #111;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-}
-
-.openbtn:hover {
-  background-color: #444;
+.contact {
+  margin: 10% 10%;
+  padding: 2%;
+  border-color: #111;
+  border-radius: 5%;
+  border-style: solid;
+  border-width: 1px;
+  background-color: rgb(121, 191, 238);
+  text-align: left;
 }
 
 /* The sidebar menu */
