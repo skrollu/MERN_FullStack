@@ -39,14 +39,14 @@ class SideBar extends Component {
                         <Link to="/movies">
                             <li>Movies</li>
                         </Link>
+                        <Link to="/books">
+                            <li>Books</li>
+                        </Link>
                         <Link to="/customers">
                             <li>Customers</li>
                         </Link>
                         <Link to="/users">
                             <li>Users</li>
-                        </Link>
-                        <Link to="/books">
-                            <li>Books</li>
                         </Link>
                     </ul>
                 </div>
