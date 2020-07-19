@@ -22,7 +22,7 @@
   color: rgb(226, 217, 209);
   font-size:1.6rem;
   line-height: 3rem;
-  border-bottom: 2px groove;
+  border-bottom: 2px solid #222;;
 }
 
 /* visited link */
