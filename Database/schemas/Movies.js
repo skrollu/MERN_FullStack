@@ -34,6 +34,10 @@ const moviesSchema = new Schema({
     metacritic: {
         type: String,
     },
+    youtubeEmbedUrl: {
+        type: String,
+        default: "https://www.youtube.com/embed/cgt8351V7D0"
+    }
 });
 
 module.exports = db.model("Movies", moviesSchema, "Movies");
