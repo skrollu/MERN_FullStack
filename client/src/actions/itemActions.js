@@ -22,22 +22,20 @@ export const getItems = (collection) => dispatch => {
 }
 
 export const getItemsByText = (collection, text) => dispatch => {
-    console.log("fetching..." + text);
     
     dispatch(setItemsLoading());
     dispatch(setItemsCollection(collection));
     axios.get(`/api/${collection}/${text}`)
         .then(res => {
-            const data = res.data
-            dispatch({ //dispatch data to the reducer //possible only thx to redux thunkMiddleware which abble dispatch call to store in async  call
+            const item = res.data
+            dispatch({ 
                 type: GET_ITEMS,
-                payload: data
+                payload: item
             });
         })
 }
 
 export const getItemById = (collection, id) => dispatch => {
-    console.log("Fetching: ");
 
     dispatch(setItemsLoading());
     dispatch(setItemsCollection(collection));
@@ -45,7 +43,7 @@ export const getItemById = (collection, id) => dispatch => {
         .then(res => {
             const item = res.data
             console.log("item by id: " + item)
-            dispatch({ //dispatch data to the reducer //possible only thx to redux thunkMiddleware which abble dispatch call to store in async  call
+            dispatch({ 
                 type: GET_ITEM,
                 payload: item
             });

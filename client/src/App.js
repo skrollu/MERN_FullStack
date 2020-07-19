@@ -11,7 +11,7 @@ import SideBar from './components/sidebar';
 import ToggleSideBar from './components/toggleSidebar';
 import StarWarsBooks from './components/starWarsBooks';
 import MovieDetails from './components/movies/movieDetails';
-import Filter from './components/ui/filter'
+import Welcome from './components/welcome'
 
 class App extends Component {
 
@@ -57,6 +57,7 @@ class App extends Component {
           </div>
 
           <Switch>
+            <Route path="/" component={Welcome} />   
             <Route path="/movies" component={MoviesGrid}/>
             <Route path="/customers" component={Customers} />
             <Route path="/books" component={StarWarsBooks} />
