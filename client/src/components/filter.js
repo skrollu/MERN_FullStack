@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styles from "../css/filter.module.css"
 import { connect } from 'react-redux';
-import { getItemsBy } from '../actions/itemActions';
+import { getItemsByText } from '../actions/itemActions';
 import PropTypes from 'prop-types'
 
 class Filter extends Component {
@@ -16,7 +16,7 @@ class Filter extends Component {
         event.preventDefault();
         const text = event.target.value;
         console.log(text);
-        this.props.getItemsBy(this.props.item.collection, text)
+        this.props.getItemsByText(this.props.item.collection, text)
     }
 
     search(event){
@@ -54,7 +54,7 @@ class Filter extends Component {
 }
 
 Filter.propTypes = {
-    getItemsBy: PropTypes.func.isRequired,
+    getItemsByText: PropTypes.func.isRequired,
     item: PropTypes.object.isRequired,
 }
 
@@ -62,5 +62,5 @@ const mapStateToProps = (state) => ({
     item: state.item,
 });
 
-export default connect(mapStateToProps, { getItemsBy })(Filter);
+export default connect(mapStateToProps, { getItemsByText })(Filter);
 

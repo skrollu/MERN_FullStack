@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import store from './store';
 import Customers from './components/customers/customers';
 import MoviesGrid from './components/movies/moviesGrid';
@@ -11,8 +11,7 @@ import SideBar from './components/sidebar';
 import ToggleSideBar from './components/toggleSidebar';
 import Filter from './components/filter';
 import StarWarsBooks from './components/starWarsBooks';
-
-
+import MovieDetails from './components/movies/movieDetails';
 class App extends Component {
 
   constructor(){
@@ -58,14 +57,17 @@ class App extends Component {
             <Filter />
           </div>
 
-          <Route path="/" exact component={MoviesGrid}/>
-          <Route path="/customers" exact component={Customers} />
-          <Route path="/books" exact component={StarWarsBooks} />
-          <Route path="/users" exact component={Users} />
+          <Switch>
+            <Route path="/movies" exact component={MoviesGrid}/>
+            <Route path="/customers" component={Customers} />
+            <Route path="/books" component={StarWarsBooks} />
+            <Route path="/users" component={Users} />
+            <Route path={`/movie/:id`} component={MovieDetails}/>
+            <Route path="/" component={() => <div>Erreur 404</div>} />   
+          </Switch>
 
         </Router>
       </Provider>
-      
     );
   }
 }

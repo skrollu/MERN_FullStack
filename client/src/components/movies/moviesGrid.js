@@ -1,10 +1,12 @@
 import React, { Component, useState, useEffect } from 'react';
-import Movies from './movies';
+import MovieCard from './movieCard';
 import Spinner from '../ui/spinner';
 import styles from '../../css/moviesGrid.module.css';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { getItems } from '../../actions/itemActions';
 import PropTypes from 'prop-types'
+
 /*
 const MoviesGrid = () => {
     
@@ -33,32 +35,48 @@ class MoviesGrid extends Component {
         this.props.getItems(this.state.collection);
     }
 
-    render(){
+    handleClick(event, movie){
+        console.log('Movie Card Selected: ' + movie)
+    }
+
+    render() { 
         return this.props.item.loading ? (
                 <Spinner />
             ) : (
                 <div>
-                    <h2 className={styles.title}>Movies</h2>
-                    <section className={styles.cards}>
+                    <div>
+                        <h2 className={styles.title}>Movies</h2>
+                        <section className={styles.cards}>
 
-                        {this.props.item.items.map((movie) => (
-                            <Movies key={movie.id} movie={movie}></Movies>
-                        ))}
-                    </section>
+                            {this.props.item.items.map((movie) => (
+                                <Link to={`/movie/${(movie._id)}`} onClick={(e) => this.handleClick(e, movie)}>
+                                    <MovieCard key={movie._id} movie={movie}></MovieCard>
+                                </Link>
+                            ))}
+                        </section>
+                    </div>
                 </div>
             );
     }
 }
-
+/**
+ *              <div>
+                        {this.props.item.items.map((movie) => (
+                            <Switch>
+                                <Route path={`/movie`}>
+                                    <MovieDetails youtubeUrl="https://www.youtube.com/embed/ZV5LqPzoQAs" />
+                                </Route>
+                            </Switch>
+                        ))}
+                    </div>
+ */
 MoviesGrid.propTypes = {
     getItems: PropTypes.func.isRequired,
     item: PropTypes.object.isRequired,
-    loading: PropTypes.bool.isRequired
 }
 
 const mapStateToProps = (state) => ({
-    item: state.item,
-    loading: state.loading
+    item: state.item
 });
 
 export default connect(mapStateToProps, { getItems })(MoviesGrid);

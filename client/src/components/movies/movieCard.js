@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../../css/movies.module.css';
 
-const Movies = ( {movie} ) => {
+const MovieCard = ( {movie} ) => {
 
     return (
         <div className={styles.card}>
@@ -30,4 +30,4 @@ const Movies = ( {movie} ) => {
     
 }
 
-export default Movies;
+export default MovieCard;

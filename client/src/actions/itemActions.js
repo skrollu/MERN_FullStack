@@ -1,4 +1,4 @@
-import { GET_ITEMS, ITEMS_LOADING, ITEMS_COLLECTION} from './types';
+import { GET_ITEMS, GET_ITEM, ITEMS_LOADING, ITEMS_COLLECTION} from './types';
 import axios from 'axios';
 
 export const getItems = (collection) => dispatch => {
@@ -21,16 +21,33 @@ export const getItems = (collection) => dispatch => {
     */
 }
 
-export const getItemsBy = (collection, text) => dispatch => {
+export const getItemsByText = (collection, text) => dispatch => {
     console.log("fetching..." + text);
     
     dispatch(setItemsLoading());
+    dispatch(setItemsCollection(collection));
     axios.get(`/api/${collection}/${text}`)
         .then(res => {
             const data = res.data
             dispatch({ //dispatch data to the reducer //possible only thx to redux thunkMiddleware which abble dispatch call to store in async  call
                 type: GET_ITEMS,
                 payload: data
+            });
+        })
+}
+
+export const getItemById = (collection, id) => dispatch => {
+    console.log("Fetching: ");
+
+    dispatch(setItemsLoading());
+    dispatch(setItemsCollection(collection));
+    axios.get(`/api/${collection}/${id}`)
+        .then(res => {
+            const item = res.data
+            console.log("item by id: " + item)
+            dispatch({ //dispatch data to the reducer //possible only thx to redux thunkMiddleware which abble dispatch call to store in async  call
+                type: GET_ITEM,
+                payload: item
             });
         })
 }

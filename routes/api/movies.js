@@ -21,41 +21,27 @@ router.get('/', function (req, res) {
 });
 
 /**
- * @route /api/movies/:id
- * @access PUBLIC
- * @request GET
- */
-/*
-router.get('/:id', function (req, res) {
-    console.log('/api/movies/:id...');
-
-    let id = req.params.id;
-
-    moviesModel.find({ "_id": id }, (err, movie) => {
-        assert.equal(null, err);
-        //console.log("Movie: " + movie);
-        res.json(movie);
-    });
-});
-*/
-/**
  * @route /api/movies/:title
  * @access PUBLIC
  * @request GET
  */
 router.get('/:title', function (req, res) {
     let title = req.params.title;
-    console.log('/api/movies/:' + title);
 
-    moviesModel.find(
-        { $text: { $search: title } },
-        { score: { $meta: "textScore" } })
-        .sort({ score: { $meta: "textScore" } }
-        )
-        .exec((err, movie) => {
-            assert.equal(null, err);
-            res.json(movie);
-        });
+    if(typeof title === string){
+        console.log('/api/movies/:' + title);
+        moviesModel.find(
+            { $text: { $search: title } },
+            { score: { $meta: "textScore" } })
+            .sort({ score: { $meta: "textScore" } }
+            )
+            .exec((err, movie) => {
+                assert.equal(null, err);
+                res.json(movie);
+            });
+    } else {
+        console.log("ERROR Route: /api/movies/title title is not a string");
+    }
 });
 
 /**

@@ -32,7 +32,7 @@ class SideBar extends Component {
                 <button className={"openbtn"} onClick={() => this.closeHandler()}>Close</button>
                 <h2>SideBar</h2>
                 <ul className={"ul"}>
-                    <Link to="/">
+                    <Link to="/movies">
                         <li className={"li"}>Movies</li>
                     </Link>
                     <Link to="/customers">
