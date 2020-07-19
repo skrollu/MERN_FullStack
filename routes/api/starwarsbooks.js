@@ -20,18 +20,27 @@ router.get('/', function (req, res) {
 });
 
 /**
- * @route /api/starWarsBooks/:title
+ * @route /api/starWarsBooks/:titleORplot
  * @access PUBLIC
  * @request GET
  */
-router.get('/:title', function (req, res) {
-    //console.log("/api/starWarsBooks...");
+router.get('/:titleORplot', function (req, res) {
+    let titleORplot = req.params.titleORplot;
 
-    starWarsBooksModel.find({}, function (err, books) {
-        assert.equal(null, err);
-        //console.log("StarWarsBooks: " + books);
-        res.json(books)
-    }).sort({ title: -1 });;
+    if (typeof titleORplot === 'string') {
+        console.log('/api/starWarsBooks/:' + titleORplot);
+        starWarsBooksModel.find(
+            { $text: { $search: titleORplot } },
+            { score: { $meta: "textScore" } })
+            .sort({ score: { $meta: "textScore" } }
+            )
+            .exec((err, books) => {
+                assert.equal(null, err);
+                res.json(books);
+            });
+    } else {
+        console.log("ERROR Route: /api/starWarsBooks/titleORplot titleORplot is not a string");
+    }
 });
 
 /**

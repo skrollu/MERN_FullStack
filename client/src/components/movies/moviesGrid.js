@@ -5,7 +5,8 @@ import styles from '../../css/moviesGrid.module.css';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getItems } from '../../actions/itemActions';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import Filter from '../ui/filter';
 
 /*
 const MoviesGrid = () => {
@@ -41,9 +42,13 @@ class MoviesGrid extends Component {
 
     render() { 
         return this.props.item.loading ? (
+            <div>
+                <Filter />
                 <Spinner />
+            </div>
             ) : (
                 <div>
+                    <Filter />
                     <div>
                         <h2 className={styles.title}>Movies</h2>
                         <section className={styles.cards}>

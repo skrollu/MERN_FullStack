@@ -28,7 +28,7 @@ router.get('/', function (req, res) {
 router.get('/:title', function (req, res) {
     let title = req.params.title;
 
-    if(typeof title === string){
+    if(typeof title === 'string'){
         console.log('/api/movies/:' + title);
         moviesModel.find(
             { $text: { $search: title } },

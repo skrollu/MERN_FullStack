@@ -4,12 +4,13 @@ import { connect } from 'react-redux'
 import { getItems } from '../actions/itemActions'
 import PropTypes from 'prop-types'
 import Spinner from './ui/spinner';
+import Filter  from './ui/filter';
 
 class StarWarsBooks extends Component {
     constructor() {
         super();
         this.state = {
-            collection: "starWarsbooks"
+            collection: "starWarsBooks"
         };
     }
 
@@ -19,9 +20,13 @@ class StarWarsBooks extends Component {
 
     render() {
         return this.props.item.loading ? (
-            <Spinner />
+            <div>
+                <Filter />
+                <Spinner />
+            </div>
         ) : (
             <div>
+                <Filter />
                 <h2 className={styles.title}>Star Wars Books</h2>
                 <ul className={styles.ul}>
                     {this.props.item.items.map(book =>
@@ -41,7 +46,6 @@ class StarWarsBooks extends Component {
                                     </td>
                                 </tr>
                             </table>
-
                         </li>
                     )}
                 </ul>

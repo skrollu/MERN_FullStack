@@ -9,9 +9,10 @@ import MoviesGrid from './components/movies/moviesGrid';
 import Users from './components/users';
 import SideBar from './components/sidebar';
 import ToggleSideBar from './components/toggleSidebar';
-import Filter from './components/filter';
 import StarWarsBooks from './components/starWarsBooks';
 import MovieDetails from './components/movies/movieDetails';
+import Filter from './components/ui/filter'
+
 class App extends Component {
 
   constructor(){
@@ -52,13 +53,11 @@ class App extends Component {
               <ToggleSideBar openHandler={() => this.openHandler()} />
               <h1 className="App-title">My API</h1>
             </header>
-
             {sidebar}
-            <Filter />
           </div>
 
           <Switch>
-            <Route path="/movies" exact component={MoviesGrid}/>
+            <Route path="/movies" component={MoviesGrid}/>
             <Route path="/customers" component={Customers} />
             <Route path="/books" component={StarWarsBooks} />
             <Route path="/users" component={Users} />

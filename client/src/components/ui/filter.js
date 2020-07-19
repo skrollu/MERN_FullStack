@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import styles from "../css/filter.module.css"
+import styles from '../../css/filter.module.css'
 import { connect } from 'react-redux';
-import { getItemsByText } from '../actions/itemActions';
+import { getItemsByText } from '../../actions/itemActions';
 import PropTypes from 'prop-types'
 
 class Filter extends Component {
@@ -33,7 +33,7 @@ class Filter extends Component {
         return (
             <div className={styles.wrapper}>
                 <h2>Filter</h2>
-                <form action="">
+                <form action="" onSubmit={(e) => this.search(e)}>
                     <input id="searchText"
                         type="text" 
                         placeholder="Search" 
@@ -46,7 +46,7 @@ class Filter extends Component {
                         <option value="title">Title</option>
                         <option value="year">Year</option>
                     </select>
-                    <button type="submit" className={styles.submitButton} onSubmit={(e) => this.search(e)}>Search</button>
+                    <button type="submit" className={styles.submitButton}>Search</button>
                 </form>
             </div>
         );
