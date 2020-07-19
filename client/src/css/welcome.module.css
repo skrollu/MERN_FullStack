@@ -8,15 +8,23 @@
     font-size: large;
 }
 
+.description {
+  margin: 5% 20%;
+}
+
 .key {
     border-style: solid;
     border-width: 1px;
     margin: 2% 2%;
 }
 
+.image_container {
+  margin: 3% 0
+}
+
 .image {
-  animation: image-spin infinite 2.5s linear;
-  height: 150px;
+  animation: image-spin infinite 5s linear;
+  height: 200px;
 }
 
 @keyframes image-spin {
