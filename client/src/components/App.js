@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 //import photoDeProfil from './img/FacebookPhotoDeProfil.jpg'
-import logo from './logo.svg';
+import logo from '../img/logo.svg';
 //import logoStarWars from './img/starWarsSpin.gif';
-import './App.css';
+import '../css/App.css';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import store from './store';
-import Customers from './components/customers/customers';
-import MoviesGrid from './components/movies/moviesGrid';
-import Users from './components/users';
-import SideBar from './components/ui/sidebar';
-import ToggleSideBar from './components/ui/toggleSidebar';
-import StarWarsBooks from './components/starWarsBooks';
-import MovieDetails from './components/movies/movieDetails';
-import Welcome from './components/welcome'
+import store from '../store';
+import Customers from './customers/customers';
+import MoviesGrid from './movies/moviesGrid';
+import Users from './users';
+import SideBar from './ui/sidebar';
+import ToggleSideBar from './ui/toggleSidebar';
+import StarWarsBooks from './starWarsBooks';
+import MovieDetails from './movies/movieDetails';
+import Welcome from './welcome'
 
 class App extends Component {
 
