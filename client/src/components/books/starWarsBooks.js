@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-import styles from '../css/starWarsBooks.module.css';
+import styles from '../../css/books/starWarsBooks.module.css';
 import { connect } from 'react-redux'
-import { getItems } from '../actions/itemActions'
+import { getItems } from '../../actions/itemActions'
 import PropTypes from 'prop-types'
-import Spinner from './ui/spinner';
-import Filter  from './ui/filter';
+import Spinner from '../ui/spinner';
+import Filter  from '../ui/filter';
+import { Link } from 'react-router-dom';
 
 class StarWarsBooks extends Component {
     constructor() {
         super();
         this.state = {
-            collection: "starWarsBooks"
+            collection: "starwarsbooks"
         };
     }
 
@@ -26,13 +27,13 @@ class StarWarsBooks extends Component {
             </div>
         ) : (
             <div>
-                <Filter />
                 <h2 className={styles.title}>Star Wars Books</h2>
+                <Filter />
                 <ul className={styles.ul}>
                     {this.props.item.items.map(book =>
-                        <li className={styles.li} key={book.id}>
+                        <li className={styles.li} key={book._id}>
                             <div className={styles.header}>
-                                <p><span className={styles.title}>{book.title} </span><em>{book.releaseDate}, {book.author}</em> </p>
+                                <p><Link to={`/book/${(book._id)}`}><span className={styles.header_title}>{book.title} </span></Link><em>{book.releaseDate}, {book.author}</em> </p>
                             </div>
 
                             <table>
@@ -57,12 +58,10 @@ class StarWarsBooks extends Component {
 StarWarsBooks.propTypes = {
     getItems: PropTypes.func.isRequired,
     item: PropTypes.object.isRequired,
-    loading: PropTypes.bool.isRequired
 }
 
 const mapStateToProps = (state) => ({
     item: state.item,
-    loading: state.loading
 });
 
 export default connect(mapStateToProps, { getItems })(StarWarsBooks);

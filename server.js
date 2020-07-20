@@ -20,6 +20,10 @@ app.use('/api/movie', movie);
 const starWarsBooks = require('./routes/api/starwarsbooks');
 app.use('/api/starWarsBooks', starWarsBooks);
 
+const starWarsBook = require('./routes/api/starwarsbook');
+app.use('/api/starWarsBook', starWarsBook);
+
+
 
 const port = process.env.PORT || 5000;
 

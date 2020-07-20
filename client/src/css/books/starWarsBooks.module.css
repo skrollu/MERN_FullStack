@@ -1,0 +1,32 @@
+.title {
+  text-align: center;
+  font-size: xx-large;
+  font-weight: 600;
+}
+
+.ul {
+  padding:0;
+  list-style:none;
+  width: 80%;
+  margin: auto;
+}
+
+.li{
+  font-size:1.2rem;
+  line-height: 2rem;
+  border-bottom: 1px dashed #777;
+}
+
+.header{
+  text-align: left;
+}
+
+.header_title{
+  font-size: xx-large;
+  font-weight: 600;
+}
+
+.resume{
+  text-align: left;
+  text-justify: auto;
+}

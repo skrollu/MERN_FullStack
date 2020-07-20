@@ -26,7 +26,7 @@ class Users extends Component {
                 <h2 className={styles.title}>Users</h2>
                 <ul className={styles.ul}>
                     {this.props.item.items.map(user =>
-                        <li className={styles.li} key={user.id}>{user.name} {user.email}</li>
+                        <li className={styles.li} key={user._id}>{user.name} {user.email}</li>
                     )}
                 </ul>
             </div>

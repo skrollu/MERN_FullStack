@@ -11,9 +11,10 @@ import MoviesGrid from './movies/moviesGrid';
 import Users from './users';
 import SideBar from './ui/sidebar';
 import ToggleSideBar from './ui/toggleSidebar';
-import StarWarsBooks from './starWarsBooks';
+import StarWarsBooks from './books/starWarsBooks';
 import MovieDetails from './movies/movieDetails';
 import Welcome from './welcome'
+import StarWarsBookDetails from './books/starWarsBookDetails';
 
 class App extends Component {
 
@@ -67,10 +68,11 @@ class App extends Component {
           <Switch>
             <Route path="/" exact component={Welcome} />   
             <Route path="/movies" component={MoviesGrid}/>
-            <Route path="/customers" component={Customers} />
-            <Route path="/books" component={StarWarsBooks} />
-            <Route path="/users" component={Users} />
             <Route path={`/movie/:id`} component={MovieDetails}/>
+            <Route path="/books" component={StarWarsBooks} />
+            <Route path={`/book/:id`} component={StarWarsBookDetails}/>
+            <Route path="/customers" component={Customers} />
+            <Route path="/users" component={Users} />
             <Route path="/" component={() => <div>Erreur 404</div>} />   
           </Switch>
 

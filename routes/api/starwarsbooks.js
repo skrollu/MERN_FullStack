@@ -14,7 +14,7 @@ router.get('/', function (req, res) {
 
     starWarsBooksModel.find({}, function (err, books) {
         assert.equal(null, err);
-        //console.log("StarWarsBooks: " + books);
+        //console.log("starWarsBooks: " + books);
         res.json(books)
     }).sort({ title: -1 });;
 });

@@ -48,10 +48,10 @@ class MoviesGrid extends Component {
             </div>
             ) : (
                 <div>
+                    <h2 className={styles.title}>Movies</h2>
                     <Filter />
                     <div>
-                        <h2 className={styles.title}>Movies</h2>
-                        <section className={styles.cards}>
+                        <section className={styles.grid}>
 
                             {this.props.item.items.map((movie) => (
                                 <Link to={`/movie/${(movie._id)}`} onClick={(e) => this.handleClick(e, movie)}>

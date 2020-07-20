@@ -25,7 +25,7 @@ class Customers extends Component {
         <h2 className={styles.title}>Customers</h2>
         <ul className={styles.ul}>
           {this.props.item.items.map(customer => 
-            <li className={styles.li} key={customer.id}>{customer.firstName} {customer.lastName}</li>
+            <li className={styles.li} key={customer._id}>{customer.firstName} {customer.lastName}</li>
           )}
         </ul>
       </div>
@@ -36,12 +36,10 @@ class Customers extends Component {
 Customers.propTypes = {
   getItems: PropTypes.func.isRequired,
   item: PropTypes.object.isRequired,
-  loading: PropTypes.bool.isRequired
 }
 
 const mapStateToProps = (state) => ({
   item: state.item,
-  loading: state.loading
 });
 
 export default connect(mapStateToProps, { getItems })(Customers);
