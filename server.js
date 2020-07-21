@@ -17,12 +17,11 @@ app.use('/api/movies', movies);
 const movie = require('./routes/api/movie')
 app.use('/api/movie', movie);
 
-const starWarsBooks = require('./routes/api/starwarsbooks');
+const starWarsBooks = require('./routes/api/starWarsBooks');
 app.use('/api/starWarsBooks', starWarsBooks);
 
-const starWarsBook = require('./routes/api/starwarsbook');
+const starWarsBook = require('./routes/api/starWarsBook');
 app.use('/api/starWarsBook', starWarsBook);
-
 
 
 const port = process.env.PORT || 5000;

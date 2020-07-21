@@ -10,8 +10,6 @@ const assert = require('assert');
  * @request GET
  */
 router.get('/', function (req, res) {
-    //console.log("/api/customers...");
-
     customersModel.find({}, function (err, customers) {
         assert.equal(null, err);
         //console.log("Customers: " + customers);

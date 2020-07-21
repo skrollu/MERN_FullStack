@@ -10,11 +10,8 @@ const assert = require('assert');
  * @request GET
  */
 router.get('/', function (req, res) {
-    //console.log("/api/starWarsBooks...");
-
     starWarsBooksModel.find({}, function (err, books) {
         assert.equal(null, err);
-        //console.log("starWarsBooks: " + books);
         res.json(books)
     }).sort({ title: -1 });;
 });

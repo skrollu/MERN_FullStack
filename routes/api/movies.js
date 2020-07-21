@@ -11,11 +11,8 @@ const assert = require('assert');
  * @request GET
  */
 router.get('/', function (req, res) {
-    //console.log('/api/movies...');
-
     moviesModel.find({}, (err, movies) => {
         assert.equal(null, err);
-        //console.log("Movies: " + movies);
         res.json(movies);
     }).sort({ title: 1 });
 });

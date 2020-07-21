@@ -10,8 +10,6 @@ const assert = require('assert');
  * @request GET
  */
 router.get('/:id', function (req, res) {
-    //console.log('/api/movies/:id...');
-
     let id = req.params.id;
 
     moviesModel.findById({ "_id": id }, (err, movie) => {

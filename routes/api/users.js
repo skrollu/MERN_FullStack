@@ -10,11 +10,8 @@ const assert = require('assert');
  * @request GET
  */
 router.get('/', function (req, res) {
-    //console.log("/api/users...");
-
     usersModel.find({}, function (err, users) {
         assert.equal(null, err);
-        //console.log("Users: " + users);
         res.json(users);
     });
 });
@@ -25,7 +22,6 @@ router.get('/', function (req, res) {
  * @request POST
  */
 router.post('/', function (req, res) {
-    //console.log("/api/users...");
 
     const newUser = new usersModel({
         name: req.body.name,
