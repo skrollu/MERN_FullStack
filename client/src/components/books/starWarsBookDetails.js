@@ -7,12 +7,12 @@ import styles from '../../css/books/starWarsBookDetails.module.css';
 
 class StarWarsBookDetails extends Component {
 
-    constructor({ match }, props) {
+    constructor(props) {
         super(props);
 
         this.state = {
             collection: "starwarsbook",
-            id: match.params.id
+            id: props.match.params.id
         };
     }
 
@@ -26,25 +26,23 @@ class StarWarsBookDetails extends Component {
         return this.props.item.loading ? (
             <Spinner />
         ) : (
-            <div>
-                <ul className={styles.ul}>
-                    <li className={styles.li} key={book._id}>
-                        <div className={styles.header}>
-                            <p><span className={styles.title}>{book.title} </span><em>{book.releaseDate}, {book.author}</em> </p>
-                        </div>
-                        <table>
-                            <tr>
-                                <td><span className={styles.resume}><h4><em>Resume: </em></h4><p>{book.resume}</p></span></td>
-                                <td>
-                                    <img class="fit-picture"
-                                        height="350px"
-                                        src={book.cover}
-                                        alt='poster of ' />
-                                </td>                                
-                            </tr>
-                        </table>
-                    </li>
-                </ul>
+            <div className={styles.details}>
+                <div className={styles.header}>
+                    <p><span className={styles.title}>{book.title} </span><em>{book.releaseDate}, {book.author}</em> </p>
+                </div>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><span className={styles.resume}><h4><em>Resume: </em></h4><p>{book.resume}</p></span></td>
+                            <td>
+                                <img
+                                    height="350px"
+                                    src={book.cover}
+                                    alt='poster of ' />
+                            </td>                                
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         )
     }

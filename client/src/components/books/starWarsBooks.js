@@ -33,19 +33,23 @@ class StarWarsBooks extends Component {
                     {this.props.item.items.map(book =>
                         <li className={styles.li} key={book._id}>
                             <div className={styles.header}>
-                                <p><Link to={`/book/${(book._id)}`}><span className={styles.header_title}>{book.title} </span></Link><em>{book.releaseDate}, {book.author}</em> </p>
+                                <p><Link key={`link_${book._id}`}to={`/book/${(book._id)}`}><span className={styles.header_title}>{book.title} </span></Link><em>{book.releaseDate}, {book.author}</em> </p>
                             </div>
 
                             <table>
-                                <tr>
-                                    <td><span className={styles.resume}><h4><em>Resume: </em></h4><p>{book.resume}</p></span></td>
-                                    <td>
-                                        <img class="fit-picture"
-                                            height="350px"
-                                            src={book.cover}
-                                            alt='poster of ' />
-                                    </td>
-                                </tr>
+                                <tbody>
+                                    <tr>
+                                        <td><span className={styles.resume}><h4><em>Resume: </em></h4><p>{book.resume}</p></span></td>
+                                        <td>
+                                            <div>
+                                                <img 
+                                                    height="350px"
+                                                    src={book.cover}
+                                                    alt={`Cover of ${book.title}`}/>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </li>
                     )}

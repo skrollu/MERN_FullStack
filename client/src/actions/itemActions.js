@@ -42,7 +42,6 @@ export const getItemById = (collection, id) => dispatch => {
     axios.get(`/api/${collection}/${id}`)
         .then(res => {
             const item = res.data
-            console.log("item by id: " + item)
             dispatch({ 
                 type: GET_ITEM,
                 payload: item

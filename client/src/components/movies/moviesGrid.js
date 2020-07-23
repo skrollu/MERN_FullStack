@@ -37,7 +37,7 @@ class MoviesGrid extends Component {
     }
 
     handleClick(event, movie){
-        console.log('Movie Card Selected: ' + movie)
+        //console.log('Movie Card Selected: ' + movie)
     }
 
     render() { 
@@ -54,8 +54,8 @@ class MoviesGrid extends Component {
                         <section className={styles.grid}>
 
                             {this.props.item.items.map((movie) => (
-                                <Link to={`/movie/${(movie._id)}`} onClick={(e) => this.handleClick(e, movie)}>
-                                    <MovieCard key={movie._id} movie={movie}></MovieCard>
+                                <Link key={`link_${movie._id}`} to={`/movie/${(movie._id)}`} onClick={(e) => this.handleClick(e, movie)}>
+                                    <MovieCard movie={movie}></MovieCard>
                                 </Link>
                             ))}
                         </section>
@@ -64,17 +64,7 @@ class MoviesGrid extends Component {
             );
     }
 }
-/**
- *              <div>
-                        {this.props.item.items.map((movie) => (
-                            <Switch>
-                                <Route path={`/movie`}>
-                                    <MovieDetails youtubeUrl="https://www.youtube.com/embed/ZV5LqPzoQAs" />
-                                </Route>
-                            </Switch>
-                        ))}
-                    </div>
- */
+
 MoviesGrid.propTypes = {
     getItems: PropTypes.func.isRequired,
     item: PropTypes.object.isRequired,

@@ -2,14 +2,10 @@
   text-align: center;
 }
 
-.ul {
+.details {
   padding:0;
-  list-style:none;
   width: 80%;
   margin: auto;
-}
-
-.li{
   font-size:1.2rem;
   line-height: 2rem;
   border-bottom: 1px dashed #777;

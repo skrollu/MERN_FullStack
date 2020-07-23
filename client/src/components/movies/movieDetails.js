@@ -6,12 +6,12 @@ import styles from '../../css/movies/movieDetails.module.css'
 import { getItemById } from '../../actions/itemActions';
 
 class MovieDetails extends Component {
-    constructor({ match }, props) {
+    constructor(props) {
         super(props);
     
         this.state = {
             collection: "movie",
-            id: match.params.id
+            id: props.match.params.id
         };
     }
 
@@ -51,9 +51,9 @@ class MovieDetails extends Component {
                         width="560"
                         height="315"
                         src={movie.youtubeEmbedUrl}
-                        frameborder="0"
+                        frameBorder="0"
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
+                        allowFullScreen>
                     </iframe>
                 </div>
             </div>
