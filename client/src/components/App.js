@@ -52,8 +52,8 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
-            <header className="App-header">
-              <img src={logo} className="App-logo" alt="logo" />
+            <header id="headerApp" className="App-header">
+              <img id="appLogo" src={logo} className="App-logo" alt="logo" />
 {/*               <div className="image_container">
                 <img
                   className="image"
@@ -61,7 +61,7 @@ class App extends Component {
                   alt="Photo de Profil" />
               </div> */}
               <ToggleSideBar openHandler={() => this.openHandler()} />
-              <h1 className="App-title">My API</h1>
+              <h1 id="appTitle" className="App-title">My API</h1>
             </header>
             {sidebar}
             <Filter />

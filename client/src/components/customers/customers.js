@@ -22,10 +22,10 @@ class Customers extends Component {
       <Spinner />
     ) : (
       <div>
-        <h2 className={styles.title}>Customers</h2>
-        <ul className={styles.ul}>
+        <h2 id="componentTitle" className={styles.title}>Customers</h2>
+        <ul id="CustomersList" className={styles.ul}>
           {this.props.item.items.map(customer => 
-            <li className={styles.li} key={customer._id}>{customer.firstName} {customer.lastName}</li>
+            <li id={`customer${customer._id}`} className={styles.li} key={customer._id}>{customer.firstName} {customer.lastName}</li>
           )}
         </ul>
       </div>

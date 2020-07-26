@@ -23,10 +23,10 @@ class Users extends Component {
             <Spinner />
         ) : (
             <div>
-                <h2 className={styles.title}>Users</h2>
-                <ul className={styles.ul}>
+                <h2 id="componentTitle" className={styles.title}>Users</h2>
+                <ul id="usersList" className={styles.ul}>
                     {this.props.item.items.map(user =>
-                        <li className={styles.li} key={user._id}>{user.name} {user.email}</li>
+                        <li id={`user${user._id}`} className={styles.li} key={user._id}>{user.name} {user.email}</li>
                     )}
                 </ul>
             </div>

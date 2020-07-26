@@ -28,14 +28,15 @@ class StarWarsBookDetails extends Component {
         ) : (
             <div className={styles.details}>
                 <div className={styles.header}>
-                    <p><span className={styles.title}>{book.title} </span><em>{book.releaseDate}, {book.author}</em> </p>
+                    <p id="starWarsBookDetailTitle"><span className={styles.title}>{book.title} </span><em>{book.releaseDate}, {book.author}</em> </p>
                 </div>
-                <table>
+                <table id="starWarsBookDetailTable">
                     <tbody>
                         <tr>
-                            <td><span className={styles.resume}><h4><em>Resume: </em></h4><p>{book.resume}</p></span></td>
+                            <td id="starWarsBookDetailResume"><span className={styles.resume}><h4><em>Resume: </em></h4><p>{book.resume}</p></span></td>
                             <td>
                                 <img
+                                    id="starWarsBookDetailCover"
                                     height="350px"
                                     src={book.cover}
                                     alt='poster of ' />

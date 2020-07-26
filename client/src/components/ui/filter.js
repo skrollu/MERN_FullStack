@@ -31,8 +31,9 @@ class Filter extends Component {
     render() {
         return (
             <div className={styles.wrapper}>
-                <form action="" onSubmit={(e) => this.search(e)}>
-                    <input id="searchText"
+                <form id="filterForm" action="" onSubmit={(e) => this.search(e)}>
+                    <input 
+                        id="searchText"
                         type="text" 
                         placeholder="Search" 
                         className={styles.searchText}
@@ -44,7 +45,7 @@ class Filter extends Component {
                         <option value="title">Title</option>
                         <option value="year">Year</option>
                     </select>
-                    <button type="submit" className={styles.submitButton}>Search</button>
+                    <button id="submitFormButton" type="submit" className={styles.submitButton}>Search</button>
                 </form>
             </div>
         );

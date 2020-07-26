@@ -29,45 +29,45 @@ class SideBar extends Component {
 
             <div className={this.state.sidebarStyle}> {/* TODO revoir l'exemple dans le projet redux*/}
 
-                <button className={"openbtn"} onClick={() => this.closeHandler()}>Close</button>
+                <button id="closeButtonSidebar" className={"openbtn"} onClick={() => this.closeHandler()}>Close</button>
 
                 <div>
-                    <ul className={"ul"}>
-                        <Link to="/">
+                    <ul id="sidebarLinkList" className={"ul"}>
+                        <Link id="linkToWelcome" to="/">
                             <li>Welcome</li>
                         </Link>
-                        <Link to="/movies">
+                        <Link id="linkToMovies" to="/movies">
                             <li>Movies</li>
                         </Link>
-                        <Link to="/books">
+                        <Link id="linkToBooks" to="/books">
                             <li>Books</li>
                         </Link>
-                        <Link to="/customers">
+                        <Link id="linkToCustomers" to="/customers">
                             <li>Customers</li>
                         </Link>
-                        <Link to="/users">
+                        <Link id="linkToUsers" to="/users">
                             <li>Users</li>
                         </Link>
                     </ul>
                 </div>
    
                 <div className="contact">
-                    <h4>Contact me: </h4>
-                    <ul>
+                    <h4 id="contactMeTitle">Contact me: </h4>
+                    <ul id="contactMeList">
                         <li>
-                            <a href="https://www.facebook.com/mathieu.ibersien/">Facebook</a>
+                            <a id="linkToMyFacebook" href="https://www.facebook.com/mathieu.ibersien/">Facebook</a>
                         </li>
                         <li>
-                            <a href="https://twitter.com/Maaaaamath">Twitter</a>
+                            <a id="linkToMyTwitter" href="https://twitter.com/Maaaaamath">Twitter</a>
                         </li>
                         <li>
-                            <a href="https://www.instagram.com/mamath_ib/">Instagram</a>
+                            <a id="linkToMyInstagam" href="https://www.instagram.com/mamath_ib/">Instagram</a>
                         </li>
                         <li>
-                            <a href="https://www.linkedin.com/">LinkedIn comming out soon...</a>
+                            <a id="linkToMyLinkedIn" href="https://www.linkedin.com/">LinkedIn comming out soon...</a>
                         </li>
                         <li>
-                            <a href="https://github.com/">GitHub comming out soon...</a>
+                            <a id="linkToMyGitHub" href="https://github.com/">GitHub comming out soon...</a>
                         </li>
                     </ul>
                 </div>

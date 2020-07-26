@@ -26,33 +26,32 @@ class MovieDetails extends Component {
             <Spinner />
         ) : (
             <div className={styles.movie}>
-                <ul>           
+                <ul id="movieDetailList">           
                     <li>
                         <span className={styles.title}>
-                            <strong>{movie.title}</strong>
+                            <strong id="strongTitle">{movie.title}</strong>
                         </span>
-                        <em> {movie.director}, {movie.year}, ({movie.runtime} minutes) </em>
+                        <em id="directorYearRuntime"> {movie.director}, {movie.year}, ({movie.runtime} minutes) </em>
                {/*          {
                             movie.actors.map((actor) => (
                                 <span>{actor}, </span>        
                             ))
                         } */}
-                        <strong>Metacritics: {movie.metacritic}</strong>
-                        <p>{movie.actors}</p>
+                        <strong id="metacritic">Metacritic: {movie.metacritic}</strong>
+                        <p id="actors">{movie.actors}</p>
                     </li>
                     <li>
-                        <p>&emsp;&emsp;{movie.plot}</p>
+                        <p id="plot">&emsp;&emsp;{movie.plot}</p>
                     </li>
                 </ul>
 
                 <div className={styles.iframe_container}>
                     <iframe
+                        id="youtubeTrailer"
                         title={movie.title}
                         width="560"
                         height="315"
-                        src={movie.youtubeEmbedUrl}
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture;"
+                        src={movie.youtubeEmbedUrl}                      
                         allowFullScreen>
                     </iframe>
                 </div>

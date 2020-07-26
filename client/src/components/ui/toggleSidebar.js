@@ -13,6 +13,7 @@ class ToggleSideBar extends Component {
         return (
             <div className={styles.divbtn}>
                 <button 
+                    id="toggleSidebarButton"
                     className={styles.openbtn} 
                     onClick={() => this.props.openHandler()}>
                     Menu

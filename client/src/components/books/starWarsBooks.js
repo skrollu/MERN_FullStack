@@ -25,21 +25,22 @@ class StarWarsBooks extends Component {
             </div>
         ) : (
             <div>
-                <h2 className={styles.title}>Star Wars Books</h2>
-                <ul className={styles.ul}>
+                <h2 id="componentTitle" className={styles.title}>Star Wars Books</h2>
+                <ul id="starWarsBooksList" className={styles.ul}>
                     {this.props.item.items.map(book =>
-                        <li className={styles.li} key={book._id}>
+                        <li id={`starWarsBook${book._id}`} className={styles.li} key={book._id}>
                             <div className={styles.header}>
-                                <p><Link key={`link_${book._id}`}to={`/book/${(book._id)}`}><span className={styles.header_title}>{book.title} </span></Link><em>{book.releaseDate}, {book.author}</em> </p>
+                                <p id={`starWarsBookTitle${book._id}`}><Link key={`link_${book._id}`}to={`/book/${(book._id)}`}><span className={styles.header_title}>{book.title} </span></Link><em>{book.releaseDate}, {book.author}</em> </p>
                             </div>
 
-                            <table>
+                            <table id={`starWarsBooksDetailTable${book._id}`}>
                                 <tbody>
                                     <tr>
-                                        <td><span className={styles.resume}><h4><em>Resume: </em></h4><p>{book.resume}</p></span></td>
+                                        <td id={`starWarsBooksResume${book._id}`}><span className={styles.resume}><h4><em>Resume: </em></h4><p>{book.resume}</p></span></td>
                                         <td>
                                             <div>
                                                 <img 
+                                                    id={`starWarsBookCover${book._id}`}
                                                     height="350px"
                                                     src={book.cover}
                                                     alt={`Cover of ${book.title}`}/>
