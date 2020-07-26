@@ -25,19 +25,24 @@ router.get('/', function (req, res) {
 router.get('/:title', function (req, res) {
     let title = req.params.title;
 
-    if(typeof title === 'string'){
-        console.log('/api/movies/:' + title);
-        moviesModel.find(
-            { $text: { $search: title } },
-            { score: { $meta: "textScore" } })
-            .sort({ score: { $meta: "textScore" } }
-            )
-            .exec((err, movie) => {
-                assert.equal(null, err);
-                res.json(movie);
-            });
+
+    if (title == null) {
+        console.log("null value received");
     } else {
-        console.log("ERROR Route: /api/movies/title title is not a string");
+        if(typeof title === 'string'){
+            console.log('/api/movies/:' + title);
+            moviesModel.find(
+                { $text: { $search: title } },
+                { score: { $meta: "textScore" } })
+                .sort({ score: { $meta: "textScore" } }
+                )
+                .exec((err, movie) => {
+                    assert.equal(null, err);
+                    res.json(movie);
+                });
+        } else {
+            console.log("ERROR Route: /api/movies/title title is not a string");
+        }
     }
 });
 

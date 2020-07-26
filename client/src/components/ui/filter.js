@@ -21,8 +21,7 @@ class Filter extends Component {
 
     search(event){
         event.preventDefault();
-        console.log('searchMethod')
-        //this.props.getItemsBy(this.props.item.collection, )
+        //this.props.getItemsBy(this.props.item.collection )
     }
 
     sortBy(){

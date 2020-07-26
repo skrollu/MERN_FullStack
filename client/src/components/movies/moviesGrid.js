@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getItems } from '../../actions/itemActions';
 import PropTypes from 'prop-types';
-import Filter from '../ui/filter';
 
 /*
 const MoviesGrid = () => {
@@ -43,16 +42,14 @@ class MoviesGrid extends Component {
     render() { 
         return this.props.item.loading ? (
             <div>
-                <Filter />
                 <Spinner />
             </div>
             ) : (
                 <div>
                     <h2 className={styles.title}>Movies</h2>
-                    <Filter />
+               
                     <div>
                         <section className={styles.grid}>
-
                             {this.props.item.items.map((movie) => (
                                 <Link key={`link_${movie._id}`} to={`/movie/${(movie._id)}`} onClick={(e) => this.handleClick(e, movie)}>
                                     <MovieCard movie={movie}></MovieCard>

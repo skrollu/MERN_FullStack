@@ -18,6 +18,34 @@ router.get('/', function (req, res) {
 });
 
 /**
+ * @route /api/customers/:firstNameOrlastName
+ * @access PUBLIC
+ * @request GET
+ */
+router.get('/:firstNameOrlastName', function (req, res) {
+    let firstNameOrlastName = req.params.firstNameOrlastName;
+
+    if (firstNameOrlastName == null) {
+        console.log("null value received");
+    } else {
+        if (typeof firstNameOrlastName === 'string') {
+            customersModel.find(
+                { $text: { $search: firstNameOrlastName } },
+                { score: { $meta: "textScore" } })
+                .sort({ score: { $meta: "textScore" } }
+                )
+                .exec((err, customers) => {
+                    assert.equal(null, err);
+                    res.json(customers);
+                });
+        } else {
+            console.log("ERROR Route: /api/users/:firstNameOrlastName firstNameOrlastName is not a string");
+        }
+    }
+});
+
+
+/**
  * @route /api/customers
  * @access PRIVATE
  * @request POST

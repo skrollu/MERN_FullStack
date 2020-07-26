@@ -52,7 +52,7 @@ class MovieDetails extends Component {
                         height="315"
                         src={movie.youtubeEmbedUrl}
                         frameBorder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture;"
                         allowFullScreen>
                     </iframe>
                 </div>

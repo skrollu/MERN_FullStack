@@ -17,6 +17,33 @@ router.get('/', function (req, res) {
 });
 
 /**
+ * @route /api/users/:nameOrSurname
+ * @access PUBLIC
+ * @request GET
+ */
+router.get('/:nameOrSurname', function (req, res) {
+    let nameOrSurname = req.params.nameOrSurname;
+
+    if(nameOrSurname == null){
+        console.log("null value received");
+    } else {
+        if (typeof nameOrSurname === 'string') {
+            usersModel.find(
+                { $text: { $search: nameOrSurname } },
+                { score: { $meta: "textScore" } })
+                .sort({ score: { $meta: "textScore" } }
+                )
+                .exec((err, user) => {
+                    assert.equal(null, err);
+                    res.json(user);
+                });
+        } else {
+            console.log("ERROR Route: /api/users/:nameOrSurname nameOrSurname is not a string");
+        }
+    }
+});
+
+/**
  * @route /api/users
  * @access PRIVATE
  * @request POST

@@ -13,7 +13,8 @@ import SideBar from './ui/sidebar';
 import ToggleSideBar from './ui/toggleSidebar';
 import StarWarsBooks from './books/starWarsBooks';
 import MovieDetails from './movies/movieDetails';
-import Welcome from './welcome'
+import Welcome from './welcome';
+import Filter from './ui/filter';
 import StarWarsBookDetails from './books/starWarsBookDetails';
 
 class App extends Component {
@@ -63,6 +64,7 @@ class App extends Component {
               <h1 className="App-title">My API</h1>
             </header>
             {sidebar}
+            <Filter />
           </div>
 
           <Switch>

@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import { getItems } from '../../actions/itemActions'
 import PropTypes from 'prop-types'
 import Spinner from '../ui/spinner';
-import Filter  from '../ui/filter';
 import { Link } from 'react-router-dom';
 
 class StarWarsBooks extends Component {
@@ -22,13 +21,11 @@ class StarWarsBooks extends Component {
     render() {
         return this.props.item.loading ? (
             <div>
-                <Filter />
                 <Spinner />
             </div>
         ) : (
             <div>
                 <h2 className={styles.title}>Star Wars Books</h2>
-                <Filter />
                 <ul className={styles.ul}>
                     {this.props.item.items.map(book =>
                         <li className={styles.li} key={book._id}>
