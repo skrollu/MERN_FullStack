@@ -18,7 +18,6 @@
   width: 70%;
 }
 
-
 .ul a { /* refer to Link balise */
   color: rgb(226, 217, 209);
   font-size:1.6rem;
@@ -40,12 +39,13 @@
   border-width: 1px;
   background-color: rgb(121, 191, 238);
   text-align: left;
+  font-size: 20px;
 }
 
 /* The sidebar menu */
 .sidebar {
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 30%; /* Set the width of the sidebar */
+  width: 40%; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
@@ -59,7 +59,7 @@
 
 /* The sidebar menu */
 .sidebar.close{
-  animation: closing-sidebar 1.0s forwards;
+  animation: closing-sidebar .3s forwards;
   left: 0;
 }
 
@@ -70,4 +70,10 @@
 
 @keyframes closing-sidebar {
     100% {left: -100%;}
+}
+
+@media screen and (max-width:750px){
+  .sidebar {
+    width: 80%;
+  }
 }

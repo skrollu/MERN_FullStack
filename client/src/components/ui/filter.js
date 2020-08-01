@@ -30,24 +30,32 @@ class Filter extends Component {
 
     render() {
         return (
-            <div className={styles.wrapper}>
-                <form id="filterForm" action="" onSubmit={(e) => this.search(e)}>
-                    <input 
-                        id="searchText"
-                        type="text" 
-                        placeholder="Search" 
-                        className={styles.searchText}
-                        onChange={(e) => this.TextSearchHandler(e)}></input>
+         
+            <form id="filterForm" action="" onSubmit={(e) => this.search(e)}>
+                <div className={styles.wrapper}>
+                    <div className={styles.searchTextBarArea}>
+                        <input
+                            id="searchText"
+                            type="text"
+                            placeholder="Search"
+                            className={styles.searchText}
+                            onChange={(e) => this.TextSearchHandler(e)}></input>
+                    </div>
+       
+                    <div className={styles.sortByButtonListArea}>
+                        <select id="sort-by" onSelect={() => this.sortBy()} className={styles.sortBySelect}>>
+                            <option value="">Sort by</option>
+                            <option value="director">Director</option>
+                            <option value="title">Title</option>
+                            <option value="year">Year</option>
+                        </select>
+                    </div>
 
-                    <select id="sort-by" className={styles.sortBySelect} onSelect={() => this.sortBy()}>
-                        <option value="">Sort by</option>
-                        <option value="director">Director</option>
-                        <option value="title">Title</option>
-                        <option value="year">Year</option>
-                    </select>
-                    <button id="submitFormButton" type="submit" className={styles.submitButton}>Search</button>
-                </form>
-            </div>
+                    <div className={styles.searchButtonArea}>
+                        <button id="submitFormButton" type="submit" className={styles.submitButton}> Search</button>
+                    </div>
+                </div>
+            </form>
         );
     }
 }

@@ -21,6 +21,10 @@
   text-align: left;
 }
 
+.header a {
+  color: black;
+}
+
 .header_title{
   font-size: xx-large;
   font-weight: 600;

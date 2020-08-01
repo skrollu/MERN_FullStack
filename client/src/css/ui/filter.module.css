@@ -1,40 +1,63 @@
 .wrapper{
     display: grid;
-    column-gap: 20px;
-    grid-template-columns: 3;
+    grid-template-areas: "searchTextBarArea sortByButtonListArea searchButtonArea";
+    grid-template-columns: 50% 25% 25%;
+    grid-template-rows: 1fr;
 
-    padding: 20px 0;
+    margin: auto;    
+    
     border-bottom: 2px solid #222;
-    margin: auto;
-    width: 50%;
+    width: 60%;
 
-    text-align: center;
+    padding: 3% 3%;
+    height: 100%;
+}
+
+.searchTextBarArea{
+    grid-area: searchTextBarArea;
+    margin: auto;    
 }
 
 .searchText{
-    grid-column: 1;
+    border-radius: 11%;
+    color: grey;
+    border-color: rgb(0, 0, 0);
+    border-style: solid;
+    height: 20px;
+    font-size: larg;
+}
 
-    margin: 0 20px;
-    padding: 5px 8px;
-    border-color: black;
+.sortByButtonListArea{
+    grid-area: sortByButtonListArea;
 }
 
 .sortBySelect{
-    grid-column: 2;
+    border-radius: 20%;
+    border-width: 2px;
+    border-color: rgb(0, 0, 0);
+    border-style: solid;
+    height: 25px;
+}
 
-    margin: 0 20px;
-    padding: 5px 8px;
-    border-color: black;
+.searchButtonArea{
+    grid-area: searchButtonArea;
 }
 
 .submitButton{
-    grid-column: 3;
-
-    font-size: 20px; 
     cursor: pointer;
     background-color:white;
-    padding: 5px 8px;
-    margin: 0 20px;
-    border-width: 3px;
-    border-color: black;
+
+    font-size: medium;
+    height: 100%;
+    border-radius: 20%;
+    border-width: 2px;
+    border-color: rgb(0, 0, 0);
+    border-style: solid;
+    height: 25px;
+}
+
+.submitButton:hover{
+    background-color: grey;
+    color: #fff;
+    border-style: solid 0px  black;
 }

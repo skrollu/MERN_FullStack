@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from '../../css/ui/toggleSidebar.module.css'
+import styles from '../../../css/ui/toggleSidebar.module.css'
 
 class ToggleSideBar extends Component {
     constructor(props) {
@@ -11,7 +11,7 @@ class ToggleSideBar extends Component {
 
     render() {
         return (
-            <div className={styles.divbtn}>
+            <div>
                 <button 
                     id="toggleSidebarButton"
                     className={styles.openbtn} 

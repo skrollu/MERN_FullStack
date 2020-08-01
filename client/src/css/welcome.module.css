@@ -10,6 +10,8 @@
 
 .description {
   margin: 5% 20%;
+    text-align: center;
+    justify-content: center;
 }
 
 .key {

@@ -30,7 +30,7 @@ class StarWarsBooks extends Component {
                     {this.props.item.items.map(book =>
                         <li id={`starWarsBook${book._id}`} className={styles.li} key={book._id}>
                             <div className={styles.header}>
-                                <p id={`starWarsBookTitle${book._id}`}><Link key={`link_${book._id}`}to={`/book/${(book._id)}`}><span className={styles.header_title}>{book.title} </span></Link><em>{book.releaseDate}, {book.author}</em> </p>
+                                <p id={`starWarsBookTitle${book._id}`}><Link key={`link_${book._id}`}to={`/book/${(book._id)}`}><span className={styles.header_title}>{book.title}</span></Link><em> {book.releaseDate}, {book.author}</em> </p>
                             </div>
 
                             <table id={`starWarsBooksDetailTable${book._id}`}>
