@@ -1,0 +1,35 @@
+.wrapper{
+  display: grid;
+  grid-template-areas:
+  "header" 
+  "main" 
+  "footer";
+  grid-template-columns: 1fr;
+  grid-template-rows: 15rem 1fr 5rem;
+  height: 100%;
+}
+
+.app {
+  text-align: center;
+}
+
+.appHeader{
+  grid-area: header;
+  background-color: #222;
+  color: white;
+}
+
+.main {
+  grid-area: main;
+}
+
+.footer {
+  grid-area: footer;
+  background-color: #222;
+  color: white;
+  text-align: center;
+}
+
+footer {
+  padding-top: 2%;
+}

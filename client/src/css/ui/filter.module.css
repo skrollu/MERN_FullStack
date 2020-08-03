@@ -1,0 +1,92 @@
+.wrapper{
+    display: grid;
+    grid-template-areas: "searchTextBarArea sortByButtonListArea searchButtonArea";
+    grid-template-columns: 50% 25% 25%;
+    grid-template-rows: 1fr;
+
+    margin: auto;    
+    
+    border-bottom: 2px solid #222;
+    width: 60%;
+
+    padding: 3% 3%;
+    height: 100%;
+}
+
+.searchTextBarArea{
+    grid-area: searchTextBarArea;
+    margin: auto;    
+}
+
+.searchText{
+    border-radius: 11%;
+    color: grey;
+    border-color: rgb(0, 0, 0);
+    border-style: solid;
+    height: 20px;
+    font-size: larg;
+}
+
+.sortByButtonListArea{
+    grid-area: sortByButtonListArea;
+}
+
+.sortBySelect{
+    border-radius: 20%;
+    border-width: 2px;
+    border-color: rgb(0, 0, 0);
+    border-style: solid;
+    height: 25px;
+}
+
+.searchButtonArea{
+    grid-area: searchButtonArea;
+}
+
+.submitButton{
+    cursor: pointer;
+    background-color:white;
+
+    font-size: medium;
+    border-radius: 20%;
+    border-width: 2px;
+    border-color: rgb(0, 0, 0);
+    border-style: solid;
+    height: 25px;
+}
+
+.submitButton:hover{
+    background-color: grey;
+    color: #fff;
+    border-style: solid 0px  black;
+}
+
+@media (max-width: 600px) {
+  
+    .wrapper{
+        display: grid;
+        grid-template-areas: 
+            "searchTextBarArea sortByButtonListArea searchButtonArea";
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+  
+        border-bottom: 2px solid #222;
+        width: 100%;
+
+        padding: 3% 3%;
+        text-align: center;
+    }
+
+    .searchTextBarArea{
+        grid-area: searchTextBarArea;
+    }
+
+    .sortByButtonListArea{
+        grid-area: sortByButtonListArea;
+    }
+
+    .searchButtonArea{
+        grid-area: searchButtonArea;
+    }
+
+}

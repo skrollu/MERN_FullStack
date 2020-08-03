@@ -1,0 +1,64 @@
+.wrappeHeader{
+    display: grid;
+    grid-template-areas: "hamburgerMenu title option";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    text-align: center;
+}
+
+.hamburgerMenu{
+    grid-area: hamburgerMenu;
+}
+
+.title{
+    grid-area: title;
+    color: rgb(196, 240, 243);
+    padding-bottom: 20px;
+}
+
+.title a {
+    text-decoration: none;
+}
+
+.appTitle {
+  font-size: 1.5em;
+  text-decoration: none;
+  color: #ffffffff;
+  margin: auto;
+}
+
+.appLogo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.option {
+    grid-area: option;   
+}
+
+.option a {
+    text-decoration: none;
+    color: #ffff;
+    font-size: 20px;
+}
+
+.wrapperOption{
+    display: grid;
+    grid-template-areas: "cart account";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+.cart{
+    grid-area: cart;
+}
+
+.account{
+    grid-area: account;
+}

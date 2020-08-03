@@ -1,0 +1,23 @@
+.title {
+  text-align: center;
+  font-size: xx-large;
+  font-weight: 600;
+}
+
+.details {
+  padding:0;
+  width: 80%;
+  margin: auto;
+  font-size:1.2rem;
+  line-height: 2rem;
+  border-bottom: 1px dashed #777;
+}
+
+.header{
+  text-align: left;
+}
+
+.resume{
+  text-align: left;
+  text-justify: auto;
+}

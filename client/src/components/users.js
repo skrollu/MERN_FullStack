@@ -1,27 +1,32 @@
 import React, { Component } from 'react';
 import styles from '../css/users.module.css';
+import { connect } from 'react-redux';
+import { getItems } from '../actions/itemActions'
+import PropTypes from 'prop-types';
+import Spinner from './ui/spinner';
+
 
 class Users extends Component {
     constructor() {
         super();
         this.state = {
-            users: []
+            collection: "users"
         };
     }
 
     componentDidMount() {
-        fetch('/api/users')
-            .then(res => res.json())
-            .then(users => this.setState({ users }, () => console.log('Users fetched...', users)));
+        this.props.getItems(this.state.collection);
     }
 
     render() {
-        return (
+        return this.props.item.loading ? (
+            <Spinner />
+        ) : (
             <div>
-                <h2>Users</h2>
-                <ul className={styles.ul}>
-                    {this.state.users.map(user =>
-                        <li className={styles.li} key={user.id}>{user.name} {user.email}</li>
+                <h2 id="componentTitle" className={styles.title}>Users</h2>
+                <ul id="usersList" className={styles.ul}>
+                    {this.props.item.items.map(user =>
+                        <li id={`user${user._id}`} className={styles.li} key={user._id}>{user.name} {user.email}</li>
                     )}
                 </ul>
             </div>
@@ -29,4 +34,13 @@ class Users extends Component {
     }
 }
 
-export default Users;
+Users.propTypes = {
+    getItems: PropTypes.func.isRequired,
+    item: PropTypes.object.isRequired,
+}
+
+const mapStateToProps = (state) => ({
+    item: state.item,
+});
+
+export default connect(mapStateToProps, { getItems })(Users);
