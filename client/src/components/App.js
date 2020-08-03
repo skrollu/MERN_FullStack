@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 //import photoDeProfil from './img/FacebookPhotoDeProfil.jpg'
 //import logoStarWars from './img/starWarsSpin.gif';
 import styles from '../css/App.module.css';
+//import '../css/index.css';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import store from '../store';
@@ -47,10 +48,10 @@ class App extends Component {
     }
 
     return (
-      <div className={styles.grid_container}>
+      <div className={styles.wrapper}>
         <Provider store={store}>
           <Router>
-            <div className={styles.app}>
+         
               <div className={styles.appHeader}>
                 <header id="headerApp">  
                   <Header openHandler={() => this.openHandler()}/>
@@ -59,7 +60,7 @@ class App extends Component {
               
               {sidebar}
 
-              <div className={styles.main}>
+              <div className={styles.main}> 
                 <main>
                   <Filter />
                 
@@ -82,7 +83,6 @@ class App extends Component {
                 </footer>
               </div>
 
-            </div>
           </Router>
         </Provider>
       </div>

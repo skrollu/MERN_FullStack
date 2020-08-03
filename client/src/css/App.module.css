@@ -1,9 +1,12 @@
-.grid_container{
+.wrapper{
   display: grid;
-  grid-template-areas: "header" "main" "footer";
+  grid-template-areas:
+  "header" 
+  "main" 
+  "footer";
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  
+  grid-template-rows: 15rem 1fr 5rem;
+  height: 100%;
 }
 
 .app {
@@ -18,14 +21,15 @@
 
 .main {
   grid-area: main;
-  
-  background-color: aqua;
 }
 
 .footer {
   grid-area: footer;
-  color: white;
-  padding-top: 100px;
-  height: 100px;
   background-color: #222;
+  color: white;
+  text-align: center;
+}
+
+footer {
+  padding-top: 2%;
 }
