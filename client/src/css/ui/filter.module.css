@@ -48,7 +48,6 @@
     background-color:white;
 
     font-size: medium;
-    height: 100%;
     border-radius: 20%;
     border-width: 2px;
     border-color: rgb(0, 0, 0);
@@ -60,4 +59,34 @@
     background-color: grey;
     color: #fff;
     border-style: solid 0px  black;
+}
+
+@media (max-width: 600px) {
+  
+    .wrapper{
+        display: grid;
+        grid-template-areas: 
+            "searchTextBarArea sortByButtonListArea searchButtonArea";
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+  
+        border-bottom: 2px solid #222;
+        width: 100%;
+
+        padding: 3% 3%;
+        text-align: center;
+    }
+
+    .searchTextBarArea{
+        grid-area: searchTextBarArea;
+    }
+
+    .sortByButtonListArea{
+        grid-area: sortByButtonListArea;
+    }
+
+    .searchButtonArea{
+        grid-area: searchButtonArea;
+    }
+
 }

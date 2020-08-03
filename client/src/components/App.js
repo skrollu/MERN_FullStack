@@ -79,7 +79,7 @@ class App extends Component {
 
               <div className={styles.footer}>
                 <footer id="footer">
-                  All right reserved. Mathieu Ibersien. 2020.
+                  All rights reserved. Mathieu Ibersien. 2020.
                 </footer>
               </div>
 

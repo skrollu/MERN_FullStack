@@ -29,10 +29,12 @@ class SideBar extends Component {
 
             <div className={this.state.sidebarStyle}> {/* TODO revoir l'exemple dans le projet redux*/}
                 <aside>
-                    <button id="closeButtonSidebar" className={"openbtn"} onClick={() => this.closeHandler()}>Close</button>
+                    <div class="openBtnWrapper">
+                        <button id="closeButtonSidebar" className={"openbtn"} onClick={() => this.closeHandler()}>Close</button>
+                    </div>
 
                     <div>
-                        <ul id="sidebarLinkList" className={"ul"}>
+                        <ul id="sidebarLinkList" className="ul">
                             <Link id="linkToWelcome" to="/">
                                 <li>Welcome</li>
                             </Link>
